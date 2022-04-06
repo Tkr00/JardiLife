@@ -18,34 +18,20 @@ header {
        color: #2a1000;
     }
 
+    /*
 #navbar {
     background-color: #33d80a;
     margin-top: 20px;
 }
-    .nav-item a {
-        color: #2a1000;
-        font-size: 16px;
-        font-weight: 500;
+
+nav.navbar {
+    background-color: #CC1414;
+}
+
+nav{
+    background: red !important
     }
-
-        .nav-item a:hover {
-            text-decoration: none;
-            color: #fff;
-        }
-
-        .na carro {
-            color:#fff;
-            left: 0;
-        }
-
-.menu-list {
-    padding: 12px 0;
-    margin-bottom: 0;
-}
-
-.menu-list > li:not(:last-child) {
-    margin-right: 40px;
-}
+*/
 
 /* Content */
 
