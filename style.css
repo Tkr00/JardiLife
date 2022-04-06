@@ -18,22 +18,22 @@ header {
        color: #2a1000;
     }
 
-.menu-bar {
-    background-color: #a6ff00;
+#navbar {
+    background-color: #33d80a;
     margin-top: 20px;
 }
-    .menu-bar a {
+    .nav-item a {
         color: #2a1000;
         font-size: 16px;
         font-weight: 500;
     }
 
-        .menu-bar a:hover {
+        .nav-item a:hover {
             text-decoration: none;
             color: #fff;
         }
 
-        .menu-bar carro {
+        .na carro {
             color:#fff;
             left: 0;
         }
@@ -95,7 +95,7 @@ header {
 
 /* Footer */
 footer {
-    background-color: #a6ff00;
+    background-color: #33d80a;
     font-size: 12px;
     padding: 10px 0;
 }
