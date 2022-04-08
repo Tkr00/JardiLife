@@ -65,7 +65,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Quienes somos</a>
+                  <a class="nav-link active" aria-current="page" href="quienes somos.html">Quienes somos</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="Producto.html">Productos</a>
@@ -76,7 +76,7 @@
                   </a>
                 
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="macetero.html">Maceteros</a></li>
+                    <li><a class="dropdown-item" href="Macetero.html">Maceteros</a></li>
                     <li><a class="dropdown-item" href="Flores.html">Flores</a></li>
                     <li><a class="dropdown-item" href="tierra-de-hojas.html">Tierra de hojas</a></li>
                     <li><a class="dropdown-item" href="Arbustos.html">Arbustos</a></li>
@@ -99,12 +99,44 @@
                 <button class="btn btn-outline-success" type="submit">Buscar</button>
               </form>
               <div style="margin: 1%;">
-                <i class="fa-solid fa-cart-shopping" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+                <i class="fa-solid fa-cart-shopping" data-bs-toggle="modal" data-bs-target="#modalcarrito"></i>
               </div>
             </div>
           </div>
         </nav>
       </header>
+      <!--modal carrito-->
+      <div class="modal fade" id="modalcarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Carrito de Compra</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid">
+                <div class="col-md-12">
+                    <img id="img_pt"  src="https://th.bing.com/th/id/OIP.9bIt7MWy8o24bItqrZ2pzAAAAA?pid=ImgDet&rs=1" >
+                    <h2 style="text-align: right;">Macetero Marron Grande</h2>
+                    <p class="text" style="text-align: right;">Valor: $4900</p>
+                </div>
+                <div class="col-md-12">
+                  <img id="img_pt"  src="https://th.bing.com/th/id/OIP.9bIt7MWy8o24bItqrZ2pzAAAAA?pid=ImgDet&rs=1">
+                  <h2 style="text-align: right;">Macetero Marron Grande</h2>
+                  <p class="text" style="text-align: right;">Valor: $4900</p>
+                </div>
+                <div class="col-md-12" style="text-align: right;">
+                  <h2>Total a Pagar:$9800</h2>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary">Pagar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!---productos-->
       <div class="conteiner col-md-8" style="margin-left: 15%; margin-right: 15%; margin-bottom: 5%;">
