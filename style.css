@@ -49,3 +49,13 @@ footer {
         text-align: center;
         color: #4e4a4a;
     }
+
+/* Quienes somos */
+
+#titulo-quienes {
+    text-align: center;
+}
+
+#texto-principal {
+    text-align: center;
+}
