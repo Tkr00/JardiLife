@@ -99,12 +99,36 @@
                 <button class="btn btn-outline-success" type="submit">Buscar</button>
               </form>
               <div style="margin: 1%;">
-                <i class="fa-solid fa-cart-shopping" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+                <i class="fa-solid fa-cart-shopping" data-bs-toggle="modal" data-bs-target="#modalcarrito"></i>
               </div>
             </div>
           </div>
         </nav>
       </header>
+      <!--modal carrito-->
+      <div class="modal fade" id="modalcarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Carrito de Compra</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid">
+                  <div class="col-md-12">
+                    <img src="2x1.png">
+                    <h2 style="text-align: right;">Macetero</h2>
+                    <p class="text" style="text-align: right;">Valor: $3000</p>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary">Pagar</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <!--modal  car-->
       <div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="ModalCarrito" aria-hidden="true">
         <div class="modal-dialog">
