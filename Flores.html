@@ -19,8 +19,8 @@
 
 </head>
   <body>
-      <header>
-        <div class="container" style="margin-bottom: 1%;">
+    <header>
+        <div class="conteiner" style="margin-bottom: 1%;">
             <div class="row">
                 <div class="col-md-6">
                     <img src="logo.png" alt="Jardineria">
@@ -57,7 +57,7 @@
         </div>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid" style="background-color: #33d80a;">
+          <div class="container-fluid" style="background-color: #33d80a; margin-bottom: 5%;">
             <a class="navbar-brand" href="Pagina.html">Inicio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -65,7 +65,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Quienes somos</a>
+                  <a class="nav-link active" aria-current="page" href="Pagina.html">Quienes somos</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="Producto.html">Productos</a>
@@ -74,28 +74,18 @@
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Categorias
                   </a>
-                
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="macetero.html">Maceteros</a></li>
+                    <li><a class="dropdown-item" href="#">Maceteros</a></li>
                     <li><a class="dropdown-item" href="#">Flores</a></li>
-                    <li><a class="dropdown-item" href="#">Tierra de hojas</a></li>
+                    <li><a class="dropdown-item" href="#">Tierra de ojas</a></li>
                     <li><a class="dropdown-item" href="#">Arbustos</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="Producto.html">Ver todos los productos</a></li>
+                    <li><a class="dropdown-item" href="#">Ver todos los productos</a></li>
                   </ul>
                 </li>
-                <!--
-                  <li class="nav-item">
-                  <a class="nav-link disabled">Disabled</a>
-                </li>
-              -->
-              <li class="nav-item" > 
-                <a class="nav-link"  href="inicio.html">Cerrar Sesión</a>
-              </li>
-              
               </ul>
               <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Buscar en JardiLife.cl" aria-label="Search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Buscar</button>
               </form>
               <div style="margin: 1%;">
@@ -105,8 +95,75 @@
           </div>
         </nav>
       </header>
-      <!--modal  car-->
-      <div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="ModalCarrito" aria-hidden="true">
+
+      <!---productos-->
+      <div class="conteiner col-md-8" style="margin-left: 15%; margin-right: 15%; margin-bottom: 5%;">
+        <div class="row">
+          <div class="lista col-12"> 
+            <h4 id="productos">Nuestros productos</h4>
+          </div>
+                    
+        
+          <!--flores-->
+
+          <div class="col-sm-3" style="margin-top: 5%;">
+            <div class="card" >
+              <img id="img_pt"  src="https://th.bing.com/th/id/OIP.Z-4qthqpIOfkL5Ov4O9iTgAAAA?pid=ImgDet&rs=1" >
+              <div class="card-body">
+                <h5 class="card-title">Plantita1</h5>
+                <p class="card-text">aqui va texto para la plantita/producto</p>
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Comprar</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-3" style="margin-top: 5%;">
+            <div class="card" >
+              <img id="img_pt"  src="https://th.bing.com/th/id/OIP.h8cgVzjJg6DB4cuZWbr5owHaLD?pid=ImgDet&rs=1" >
+              <div class="card-body">
+                <h5 class="card-title">Plantita1</h5>
+                <p class="card-text">aqui va texto para la plantita/producto</p>
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Comprar</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3" style="margin-top: 5%;">
+            <div class="card" >
+              <img id="img_pt"  src="https://th.bing.com/th/id/OIP.I2tNkZiYkiVYIcvjM9SzegHaIT?pid=ImgDet&rs=1" >
+              <div class="card-body">
+                <h5 class="card-title">Plantita1</h5>
+                <p class="card-text">aqui va texto para la plantita/producto</p>
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Comprar</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3" style="margin-top: 5%;">
+            <div class="card" >
+              <img id="img_pt"  src="https://th.bing.com/th/id/OIF.WgcsP86cZfEOY9N200qWjw?pid=ImgDet&rs=1" >
+              <div class="card-body">
+                <h5 class="card-title">Plantita1</h5>
+                <p class="card-text">aqui va texto para la plantita/producto</p>
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Comprar</a>
+              </div>
+            </div>
+          </div>
+
+
+          
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <!--acá termina los productos-->
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -114,12 +171,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <h1 class="title">Macetero blanco</h1>
-              <p class="text"></p>
-              <p class="text"></p>
-              <p class="text">Precio: $7990</p>
-              <p class="text">Descripcion: </p>
-              <img id="img_pt"  src="https://th.bing.com/th/id/R.f1a5ea6c9ff7122466e1eefd58c2fdcf?rik=21vjwD9igXPjCg&pid=ImgRaw&r=0" >
+              
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -128,30 +180,23 @@
           </div>
         </div>
       </div>
-
-
-      <h1 id="titulo-quienes">¿Quienes somos?</h1>
-          <br>
-          <p id="texto-principal">
-            JardiLife es una empresa creada por vecinos que vendian productos de jardineria para apoyar a una fundacion sin fines de lucro.
-          </p>
-          <img id="img_pt" src="logo.png" >
-
-
-<!-- Pie de pagina -->
+        
 
       <footer>
-
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
 
                     <strong>JardiLife</strong> &copy;2022- Todos los derechos reservados. Sitio diseñado por <a href="#">Alvaro Farias, Byron Román y Felipe Prieto</a>
-                    
+
+
                 </div>
-                <div class="col-sm-6" style="text-align: end;">
+                <div class="col-sm-6 text-xs-right">
 
                     <ul class="list-inline">
+                        <li class="list-inline-item">
+                        <a href="#">Inicio</a>
+                        </li>
                         <li class="list-inline-item">
                         <a href="#">Aviso Legal</a>
                         </li>
@@ -161,13 +206,21 @@
                         <li class="list-inline-item">
                         <a href="#">Contacto</a>
                         </li>
+                        
+                        
                     </ul>
+
+
                 </div>
             </div>
         </div>
+
       </footer>
-     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
+
+
