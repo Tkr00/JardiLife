@@ -37,3 +37,15 @@ footer {
         color: #fff;
         text-decoration: none;
     }
+
+/* productos */
+    #img_pt{
+        height: 150px;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    #productos{
+        text-align: center;
+        color: #4e4a4a;
+    }
