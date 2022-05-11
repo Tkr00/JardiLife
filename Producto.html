@@ -16,11 +16,12 @@
 
     <!-- Main Css -->
     <link rel="stylesheet" href="style.css" type="text/css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-</head>
   <body>
     <header>
-        <div class="conteiner" style="margin-bottom: 1%;">
+        <div class="container" style="margin-bottom: 1%;">
             <div class="row">
                 <div class="col-md-6">
                     <img src="logo.png" alt="Jardineria">
@@ -150,33 +151,32 @@
               
               <!-- Api regiones Carro de Compras-->
               <script>
-                  $.get("https://apis.digital.gob.cl/dpa/regiones", function (data) {
-                      $.each(data, function (i, data) {
-                          $("#regiones").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
-                      });
-                  });
-          
-                  $("#regiones").change(function () {
-                      $()
-                      $("#provincia").empty();
-                      $.get("https://apis.digital.gob.cl/dpa/regiones/" + $("#regiones").val() + "/provincias", function (data) {
-                          $.each(data, function (i, data) {
-                              $("#provincia").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
-                          });
-                      });
-                  });
-          
-                  $("#provincia").change(function () {
-                      $("#comunas").empty();
-                      $.get("https://apis.digital.gob.cl/dpa/provincias/" + $("#provincia").val() + "/comunas", function (data) {
-                          $.each(data, function (i, data) {
-                              $("#comunas").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
-                          });
-                      });
-                  });
-              </script>
-          
-              </script>
+                $.get("https://apis.digital.gob.cl/dpa/regiones", function (data) {
+                    $.each(data, function (i, data) {
+                        $("#regiones").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
+                    });
+                });
+        
+                $("#regiones").change(function () {
+                    $()
+                    $("#provincia").empty();
+                    $.get("https://apis.digital.gob.cl/dpa/regiones/" + $("#regiones").val() + "/provincias", function (data) {
+                        $.each(data, function (i, data) {
+                            $("#provincia").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
+                        });
+                    });
+                });
+        
+                $("#provincia").change(function () {
+                    $("#comunas").empty();
+                    $.get("https://apis.digital.gob.cl/dpa/provincias/" + $("#provincia").val() + "/comunas", function (data) {
+                        $.each(data, function (i, data) {
+                            $("#comunas").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
+                        });
+                    });
+                });
+            </script>
+
               <hr></hr>
 
                 <div class="col-md-12" style="text-align: right;">

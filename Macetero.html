@@ -17,6 +17,8 @@
     <!-- Main Css -->
     <link rel="stylesheet" href="style.css" type="text/css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
   <body>
     <header>
@@ -125,6 +127,59 @@
                   <h2 style="text-align: right;">Macetero Marron Grande</h2>
                   <p class="text" style="text-align: right;">Valor: $4900</p>
                 </div>
+
+                 <!-- Api Carrito -->
+                 <div class="container-fluid">
+                  <div class="row">
+                      <h6>Seleccione la region, provincia y comuna de envio</h6>
+                  </div>
+                  <div class="row g-2">
+                      <div class="col-md-12">
+                          <select id="regiones">
+                              <option active>Seleccione region</option>
+                          </select>
+          
+                      </div>
+                      <div class="col-md-12">
+                          <select id="provincia"></select>
+                      </div>
+                      <div class="col-md-12">
+                          <select id="comunas"></select>
+                      </div>
+                  </div>
+          
+              </div>
+              
+              <!-- Api regiones Carro de Compras-->
+              <script>
+                $.get("https://apis.digital.gob.cl/dpa/regiones", function (data) {
+                    $.each(data, function (i, data) {
+                        $("#regiones").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
+                    });
+                });
+        
+                $("#regiones").change(function () {
+                    $()
+                    $("#provincia").empty();
+                    $.get("https://apis.digital.gob.cl/dpa/regiones/" + $("#regiones").val() + "/provincias", function (data) {
+                        $.each(data, function (i, data) {
+                            $("#provincia").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
+                        });
+                    });
+                });
+        
+                $("#provincia").change(function () {
+                    $("#comunas").empty();
+                    $.get("https://apis.digital.gob.cl/dpa/provincias/" + $("#provincia").val() + "/comunas", function (data) {
+                        $.each(data, function (i, data) {
+                            $("#comunas").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
+                        });
+                    });
+                });
+            </script>
+
+              <hr></hr>
+
                 <div class="col-md-12" style="text-align: right;">
                   <h2>Total a Pagar:$9800</h2>
                 </div>
@@ -137,7 +192,6 @@
           </div>
         </div>
       </div>
-
       <!---productos-->
       <div class="conteiner col-md-8" style="margin-left: 15%; margin-right: 15%; margin-bottom: 5%;">
         <div class="row">
