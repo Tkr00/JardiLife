@@ -28,8 +28,11 @@
                         <input type="checkbox" class="form-check-input" id="Check">
                         <label class="form-check-label" for="Check">Recuerdame</label>
                 </div>
+                <div id="liveAlertPlaceholder" class="col-md-4">
+                    <div id="alert"></div>
+                </div>
                 <div>
-                    <button type="submit" style="float: right;" class="btn btn-primary" id="btnConectar">Iniciar sesion</button>
+                    <button type="button" style="float: right;" class="btn btn-primary" id="btnConectar">Iniciar sesion</button>
                 </div>
             </form>
         </div>
@@ -49,11 +52,12 @@
                     if(contraseña.length > 8){
                         alertTrigger.addEventListener('click', function () {
                             alert('Has ingresado correctamente los valores de tu cuenta!', 'success');
+                            $(location).attr('href',"Pagina.html");
                         })    
                     }else {
                         if (alertTrigger) {
                             alertTrigger.addEventListener('click', function () {
-                                alert('Campo Contraseña no puede estar vacio', 'danger');
+                                alert('Campo Contraseña no puede estar vacio o debe ser mayor a 8 caracteres', 'danger');
                             })
                         }
                     }
