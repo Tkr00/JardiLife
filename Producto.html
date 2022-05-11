@@ -422,6 +422,106 @@
         </div>
 
       </footer>
+
+      <!-- Agregar productos al carro de compras -->
+      
+      <script>
+        //Creacion de objeto JSON
+        num = 1;
+    
+        var lista = [];
+    
+        //Agregar
+        $("#btnAgregar").click(function () {
+            var personaje = {
+                "ID": 0,
+                "nombre": "",
+                "precio": "",
+            }
+    
+    
+            personaje.ID = num;
+            personaje.nombre = $("#txtNombre").val();
+            personaje.precio = $("#numPrecio").val();;
+            if ($("#chkDiff1").is(":checked")) {
+                personaje.modalidad.push("Hardcore");
+            }
+            if ($("#chkDiff2").is(":checked")) {
+                personaje.modalidad.push("Extremo");
+            }
+            //console.log(personaje);
+    
+            lista.push(personaje);
+            num++;
+        });
+        //Listar
+        $("#btnListar").click(function () {
+            $("#tabla1").removeAttr("hidden");
+            $("#personajes").empty();
+    
+            $.each(lista, function (i, item) {
+    
+                var diff = "";
+    
+                item.modalidad.forEach(x => {
+                    diff = diff + x + " ";
+                });
+                $("#personajes").append("<tr><td>" +
+                    item.ID + "</td><td>" +
+                    item.nombre + "</td><td>" +
+                    item.precio + "</td><td>" +
+                    diff + "</td><td>" +
+                    "<button type='button' class='btn btn-warning btnBorrar' id='btnBorrar' >Eliminar</button>" + "</td><td>" +
+                    "<button type='button' class='btn btn-info' id='btnModificar' >Modificar</button>" + "</td></tr>"
+                );
+                console.log(item);
+            });
+        });
+        //Borrar
+        $("#personajes").on("click", "#btnBorrar", function () {
+            var fila = $(this).closest("tr");
+            var data = fila.find("td:eq(0)").text();
+            for (let i = 0; i < lista.length; i++) {
+                if (lista[i].ID == data) {
+                    lista.splice(i, 1);
+                }
+            }
+        });
+    
+        //Modificar
+        $("#personajes").on("click", "#btnModificar", function () {
+            var fila = $(this).closest("tr");
+            var data = fila.find("td:eq(0)").text();
+            lista.forEach(item => {
+                console.log("ID lista: " + item.ID + " || " + "ID objeto" + data)
+                if (item.ID == data) {
+                    $("#txtNombre").val(item.nombre);
+                    $("#numPrecio").val(item.precio);
+                    if (item.modalidad[0] == "Hardcore") {
+                        $("#chkDiff1").prop('checked', true);
+                        if (item.modalidad[1] == "Extremo") {
+                            $("#chkDiff2").prop('checked', true);
+                        } else {
+                            $("#chkDiff2").prop('checked', false);
+                        }
+                    } else if (item.modalidad[0] == "Extremo") {
+                        $("#chkDiff2").prop('checked', true);
+                        $("#chkDiff1").prop('checked', false);
+    
+                    } else {
+                        $("#chkDiff1").prop('checked', false);
+                        $("#chkDiff2").prop('checked', false);
+                    }
+                }
+            });
+        })
+        //Limpiar Formulario
+        $("#btnClean").click(function () {
+            $("#tabla1").prop("hidden", true);
+        });
+    
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
   </body>
