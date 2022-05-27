@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Categoria,Arbustos,Flores,Maceteros,Tierra_De_Hojas
+from .models import Categoria,Arbusto,Flore,Macetero,Tierra_De_Hoja
 # Register your models here.
 #Permite administrar el modelo completo
 
 admin.site.register(Categoria)
-admin.site.register(Arbustos)
-admin.site.register(Flores)
-admin.site.register(Maceteros)
-admin.site.register(Tierra_De_Hojas)
+admin.site.register(Arbusto)
+admin.site.register(Flore)
+admin.site.register(Macetero)
+admin.site.register(Tierra_De_Hoja)

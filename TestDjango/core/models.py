@@ -12,37 +12,37 @@ class Categoria(models.Model):
         return self.nombreCategoria
 
 #Modelo Arbustos
-class Arbustos(models.Model):
-    nombreArbustos = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Arbusto')
+class Arbusto(models.Model):
+    nombreArbusto = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Arbusto')
     precio = models.CharField(max_length=6,verbose_name='Precio Arbusto')
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.nombreArbustos
+        return self.nombreArbusto
 
 #Modelo Flores
-class Flores(models.Model):
-    nombreFlores = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Flores')
+class Flore(models.Model):
+    nombreFlore = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Flores')
     precio = models.CharField(max_length=6,verbose_name='Precio Flores')
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nombreFlores
+        return self.nombreFlore
 
 #Modelo Maceteros
-class Maceteros(models.Model):
-    nombreMaceteros = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Arbusto')
+class Macetero(models.Model):
+    nombreMacetero = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Arbusto')
     precio = models.CharField(max_length=6,verbose_name='Precio Arbusto')
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nombreMaceteros
+        return self.nombreMacetero
 
 #Modelo Tierra De Hojas
-class Tierra_De_Hojas(models.Model):
-    nombreTierraDeHojas = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Arbusto')
+class Tierra_De_Hoja(models.Model):
+    nombreTierraDeHoja = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Arbusto')
     precio = models.CharField(max_length=6,verbose_name='Precio Arbusto')
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nombreTierraDeHojas
+        return self.nombreTierraDeHoja
