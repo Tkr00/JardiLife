@@ -11,13 +11,38 @@ class Categoria(models.Model):
     def __str__(self):
         return self.nombreCategoria
 
+#Modelo Arbustos
+class Arbustos(models.Model):
+    nombreArbustos = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Arbusto')
+    precio = models.CharField(max_length=6,verbose_name='Precio Arbusto')
+    categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.nombreArbustos
 
-#Modelo para Vehiculo
-class Vehiculo(models.Model):
-    patente = models.CharField(max_length=6,primary_key=True,verbose_name='Patente')
-    marca = models.CharField(max_length=20,verbose_name='Marca Vehiculo')
-    modelo = models.CharField(max_length=20, null=True,blank=True,verbose_name='Modelo')
+#Modelo Flores
+class Flores(models.Model):
+    nombreFlores = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Flores')
+    precio = models.CharField(max_length=6,verbose_name='Precio Flores')
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.patente
+        return self.nombreFlores
+
+#Modelo Maceteros
+class Maceteros(models.Model):
+    nombreMaceteros = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Arbusto')
+    precio = models.CharField(max_length=6,verbose_name='Precio Arbusto')
+    categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombreMaceteros
+
+#Modelo Tierra De Hojas
+class Tierra_De_Hojas(models.Model):
+    nombreTierraDeHojas = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Arbusto')
+    precio = models.CharField(max_length=6,verbose_name='Precio Arbusto')
+    categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombreTierraDeHojas
