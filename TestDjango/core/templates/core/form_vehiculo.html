@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <title>Vehiculos</title>
+</head>
+
+<body>
+    <div class="row">
+        <h1>Ingresar Vehiculo</h1>
+    </div>
+    <div class="row">
+        <form method="POST" action="" id="formulario">
+            {% csrf_token %}
+            <div class="form-group">
+                {{form.as_table}}
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Agregar">
+            <input type="reset" class="btn btn-warning"  value="Limpiar">
+            
+            <a href="{% url 'home' %}"><button type="button" class="btn btn-secondary">Volver al Menu</button></a>
+
+            <div class="alert alert-success">
+                {{mensaje}}
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
