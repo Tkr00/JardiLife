@@ -16,6 +16,7 @@ class Arbusto(models.Model):
     nombreArbusto = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Arbusto')
     precio = models.CharField(max_length=6,verbose_name='Precio Arbusto')
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
+    upload = models.ImageField(upload_to ='A:\Repo\SOLEMNE-1\TestDjango\core\static\core\img\img_productos',verbose_name='Subir imagen')
     
     def __str__(self):
         return self.nombreArbusto
@@ -25,6 +26,7 @@ class Flore(models.Model):
     nombreFlore = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Flores')
     precio = models.CharField(max_length=6,verbose_name='Precio Flores')
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
+    upload = models.ImageField(upload_to ='A:\Repo\SOLEMNE-1\TestDjango\core\static\core\img\img_productos',verbose_name='Subir imagen')
 
     def __str__(self):
         return self.nombreFlore
@@ -34,6 +36,7 @@ class Macetero(models.Model):
     nombreMacetero = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Arbusto')
     precio = models.CharField(max_length=6,verbose_name='Precio Arbusto')
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
+    upload = models.ImageField(upload_to ='A:\Repo\SOLEMNE-1\TestDjango\core\static\core\img\img_productos',verbose_name='Subir imagen')
 
     def __str__(self):
         return self.nombreMacetero
@@ -43,6 +46,7 @@ class Tierra_De_Hoja(models.Model):
     nombreTierraDeHoja = models.CharField(primary_key=True,max_length=20,verbose_name='Nombre Arbusto')
     precio = models.CharField(max_length=6,verbose_name='Precio Arbusto')
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
+    upload = models.ImageField(upload_to ='A:\Repo\SOLEMNE-1\TestDjango\core\static\core\img\img_productos',verbose_name='Subir imagen')
 
     def __str__(self):
         return self.nombreTierraDeHoja
