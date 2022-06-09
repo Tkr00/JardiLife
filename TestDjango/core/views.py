@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Producto
+from .models import Categoria, Producto
 
 # Create your views here.
 
@@ -18,15 +18,10 @@ def Flores(request):
 def Macetero(request):
     return render(request,'core/Macetero.html',)
 
-def Arbustos(request):
-    producto = Producto.objects.all()
-    
-    datos = {
-        'producto':producto
-    }
-
-
-    return render(request,'core/Arbustos.html',datos)
+def Arbustos(request,id):
+    categorias = Categoria.objects.get(idCategoria=id)
+    producto=Producto.objects.filter(categoria=categorias)
+    return render(request,'core/Arbustos.html',{'categoria':categorias,'producto':producto})
 
 def p(request):  
     return render(request,'core/p.html',)    
