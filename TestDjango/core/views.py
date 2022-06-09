@@ -13,10 +13,14 @@ def inicio(request):
     return render(request,'core/inicio.html',)
 
 def Flores(request):
-    return render(request,'core/Flores.html',)
+    categorias = Categoria.objects.get(idCategoria=id)
+    producto=Producto.objects.filter(categoria=categorias)
+    return render(request,'core/Flores.html',{'categoria':categorias,'producto':producto})
 
 def Macetero(request):
-    return render(request,'core/Macetero.html',)
+    categorias = Categoria.objects.get(idCategoria=id)
+    producto=Producto.objects.filter(categoria=categorias)
+    return render(request,'core/Macetero.html',{'categoria':categorias,'producto':producto})
 
 def Arbustos(request,id):
     categorias = Categoria.objects.get(idCategoria=id)
@@ -30,6 +34,8 @@ def quienes_somos(request):
     return render(request,'core/quienes_somos.html',)   
 
 def tierra_de_hojas(request):
-    return render(request,'core/tierra_de_hojas.html',)  
+    categorias = Categoria.objects.get(idCategoria=id)
+    producto=Producto.objects.filter(categoria=categorias)
+    return render(request,'core/tierra_de_hojas.html',{'categoria':categorias,'producto':producto})  
 
 

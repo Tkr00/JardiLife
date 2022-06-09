@@ -4,10 +4,10 @@ from .views  import Pagina,inicio,Flores, Macetero, Arbustos, quienes_somos, tie
 urlpatterns = [
     path('', Pagina, name= "Pagina" ),
     path('inicio', inicio, name="inicio"),
-    path('Flores', Flores, name="Flores"),
-    path('Macetero', Macetero, name="Macetero"),
+    path('Flores/<id>', Flores, name="Flores"),
+    path('Macetero/<id>', Macetero, name="Macetero"),
     path('Arbustos/<id>', Arbustos, name="Arbustos"),
     path('quienes_somos', quienes_somos, name= "quienes_somos"),
-    path('tierra_de_hojas', tierra_de_hojas,name= "tierra_de_hojas"),
+    path('tierra_de_hojas/<id>', tierra_de_hojas,name= "tierra_de_hojas"),
     path('p', p,name="p")
 ]
