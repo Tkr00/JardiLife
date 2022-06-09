@@ -205,7 +205,7 @@
             <div class="card" >
               <img id="img_pt"  src="https://th.bing.com/th/id/OIP.-SBCeCoRNQmeIyLucGR6hAHaF6?pid=ImgDet&rs=1" >
               <div class="card-body">
-                <h5 class="card-title" values={{pr.nombreP}} id="compa">{{pr.nombreP}}</h5>
+                <h5 class="card-title" values={{pr.nombreP}} id="comparacion">{{pr.nombreP}}</h5>
                     <p class="card-text">Precio: ${{pr.precio}}</p> 
                 <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal7">Comprar</a>
               </div>
@@ -218,7 +218,6 @@
 
       <!--modal 7-->
       {% for pr in producto %}
-      {%if {{pr.nombreP}} == #compa%}
       <div class="modal fade" id="Modal7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -239,7 +238,6 @@
           </div>
         </div>
       </div>
-      {% endif %}
       {% endfor %}
 
 
