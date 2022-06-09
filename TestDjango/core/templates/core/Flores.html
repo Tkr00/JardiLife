@@ -193,170 +193,55 @@
         </div>
       </div>
 
-      <!---productos-->
-      <div class="conteiner col-md-8" style="margin-left: 15%; margin-right: 15%; margin-bottom: 5%;">
-        <div class="row">
-          <div class="lista col-12"> 
-            <h4 id="productos">Flores</h4>
-          </div>
-                    
-        
-          <!--flores-->
-
-          <div class="col-sm-3" style="margin-top: 5%;">
-            <div class="card" >
-              <img id="img_pt"  src="https://th.bing.com/th/id/OIP.Z-4qthqpIOfkL5Ov4O9iTgAAAA?pid=ImgDet&rs=1" >
-              <div class="card-body">
-                <h5 class="card-title">Girasoles</h5>
-                    <p class="card-text">Precio: $4990
-                    </p>
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal3">Comprar</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-3" style="margin-top: 5%;">
-            <div class="card" >
-              <img id="img_pt"  src="https://th.bing.com/th/id/OIP.h8cgVzjJg6DB4cuZWbr5owHaLD?pid=ImgDet&rs=1" >
-              <div class="card-body">
-                <h5 class="card-title">Rosa</h5>
-                    <p class="card-text">Precio: $4990
-                    </p>
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal4">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3" style="margin-top: 5%;">
-            <div class="card" >
-              <img id="img_pt"  src="https://th.bing.com/th/id/OIP.I2tNkZiYkiVYIcvjM9SzegHaIT?pid=ImgDet&rs=1" >
-              <div class="card-body">
-                <h5 class="card-title">Flor Roja</h5>
-                    <p class="card-text">Precio: $4990
-                    </p>
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal44">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3" style="margin-top: 5%;">
-            <div class="card" >
-              <img id="img_pt"  src="https://th.bing.com/th/id/OIF.WgcsP86cZfEOY9N200qWjw?pid=ImgDet&rs=1" >
-              <div class="card-body">
-                <h5 class="card-title">Flores decoracion</h5>
-                    <p class="card-text">Precio: $4990
-                    </p>
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal45">Comprar</a>
-              </div>
-            </div>
-          </div>
-
-
-                <!--modal 3-->
-      <div class="modal fade" id="Modal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!---productos-->
+<div class="container col-md-8" style="margin-left: 15%; margin-right: 15%; margin-bottom: 5%;">
+  <div class="row">
+    <div class="lista col-12"> 
+      <h4 id="productos">Flores</h4>
+    </div>
+    <!--Flores card y modal-->
+    {% for pr in producto %}
+    <div class="col-sm-3" style="margin-top: 5%;">
+      <div class="card" >
+        {% if pr.imagen %}
+        <img id="img_pt" src="{{ pr.imagen.url }}">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title" values={{pr.nombreP}} id="comparacion">{{pr.nombreP}}</h5>
+              <p class="card-text">Precio: ${{pr.precio}}</p> 
+          <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#{{pr.nombreP}} id="idcomprar">Comprar</a>
+        </div>
+      </div>
+      <!--Modal-->
+      <div class="modal fade" id={{pr.nombreP}} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <h1 class="title">Girasoles</h1>
+              <h1 class="title" id="idnombre">{{pr.nombreP}}</h1>
               <p class="text"></p>
               <p class="text"></p>
-              <p class="text">Precio: $4990</p>
-              <p class="text">Descripcion: </p>
-              <img id="img_pt"  src="https://th.bing.com/th/id/OIP.Z-4qthqpIOfkL5Ov4O9iTgAAAA?pid=ImgDet&rs=1" >
+              <p class="text">Precio: ${{pr.precio}}</p>
+
+              {% if pr.imagen %}
+              <img id="img_pt" src="{{ pr.imagen.url }}" width="300" height="200">
+              {% endif %}
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
+              <button type="button" class="btn btn-primary" id="agregaralcarro">Agregar al carro</button>
             </div>
           </div>
         </div>
       </div>
 
-      <!--modal 4-->
-      <div class="modal fade" id="Modal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <h1 class="title">Rosa</h1>
-              <p class="text"></p>
-              <p class="text"></p>
-              <p class="text">Precio: $4990</p>
-              <p class="text">Descripcion: </p>
-              <img id="img_pt"  src="https://th.bing.com/th/id/OIP.h8cgVzjJg6DB4cuZWbr5owHaLD?pid=ImgDet&rs=1" >
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--modal 5-->
-      <div class="modal fade" id="Modal44" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <h1 class="title">Flor Roja</h1>
-              <p class="text"></p>
-              <p class="text"></p>
-              <p class="text">Precio: $4990</p>
-              <p class="text">Descripcion: </p>
-              <img id="img_pt"  src="https://th.bing.com/th/id/OIP.I2tNkZiYkiVYIcvjM9SzegHaIT?pid=ImgDet&rs=1" >
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--modal 6-->
-      <div class="modal fade" id="Modal45" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <h1 class="title">Flores decoracion</h1>
-              <p class="text"></p>
-              <p class="text"></p>
-              <p class="text">Precio: $4990</p>
-              <p class="text">Descripcion: </p>
-              <img id="img_pt"  src="https://th.bing.com/th/id/OIF.WgcsP86cZfEOY9N200qWjw?pid=ImgDet&rs=1" >
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-          
-
-
-
-
-
-
-
-
-        </div>
-      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
       <!--acá termina los productos-->
 
       <!-- Modal -->

@@ -201,181 +201,49 @@
             <h4 id="productos">Tierra De Hojas</h4>
           </div>
           
-          <!-- tierra de hojas -->
-          <div class="col-sm-3" style="margin-top: 5%;">
-            <div class="card" >
-              <img id="img_pt"  src="https://sodimac.scene7.com/is/image/SodimacCL/3160254?$lista240$" >
-              <div class="card-body">
-                <h5 class="card-title">Hoja de tierra</h5>
-                    <p class="card-text">Precio: $10990
-                    </p>
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal5">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3" style="margin-top: 5%;">
-            <div class="card" >
-              <img id="img_pt"  src="https://www.fertiberia.com/media/76368/tierra.jpg" >
-              <div class="card-body">
-                <h5 class="card-title">Hoja de tierra anasac</h5>
-                <p class="card-text">Precio: $10990
-                </p>
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal6">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3" style="margin-top: 5%;">
-            <div class="card" >
-              <img id="img_pt"  src="https://sodimac.scene7.com/is/image/SodimacCL/22357?fmt=jpg&fit=constrain,1&wid=712&hei=712" >
-              <div class="card-body">
-                <h5 class="card-title">Hoja de tierra</h5>
-                    <p class="card-text">Precio: $10990
-                    </p>
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal3ro">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3" style="margin-top: 5%;">
-            <div class="card" >
-              <img id="img_pt"  src="https://th.bing.com/th/id/OIP.op_779YBaOPnhZiCbiYmyQAAAA?pid=ImgDet&rs=1" >
-              <div class="card-body">
-                <h5 class="card-title">Hoja de tierra</h5>
-                    <p class="card-text">Precio: $10990
-                    </p>
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal4to">Comprar</a>
-              </div>
-            </div>
-          </div>
-
-          <!--modal 1ro-->
-      <div class="modal fade" id="Modal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <!--Tierra card y modal-->
+    {% for pr in producto %}
+    <div class="col-sm-3" style="margin-top: 5%;">
+      <div class="card" >
+        {% if pr.imagen %}
+        <img id="img_pt" src="{{ pr.imagen.url }}">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title" values={{pr.nombreP}} id="comparacion">{{pr.nombreP}}</h5>
+              <p class="card-text">Precio: ${{pr.precio}}</p> 
+          <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#{{pr.nombreP}} id="idcomprar">Comprar</a>
+        </div>
+      </div>
+      <!--Modal-->
+      <div class="modal fade" id={{pr.nombreP}} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <h1 class="title">Tierra de hojas</h1>
+              <h1 class="title" id="idnombre">{{pr.nombreP}}</h1>
               <p class="text"></p>
               <p class="text"></p>
-              <p class="text">Precio: $10990</p>
-              <p class="text">Descripcion: </p>
-              <img id="img_pt"  src="https://sodimac.scene7.com/is/image/SodimacCL/3160254?$lista240$" >
+              <p class="text">Precio: ${{pr.precio}}</p>
+
+              {% if pr.imagen %}
+              <img id="img_pt" src="{{ pr.imagen.url }}" width="300" height="200">
+              {% endif %}
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
+              <button type="button" class="btn btn-primary" id="agregaralcarro">Agregar al carro</button>
             </div>
           </div>
         </div>
       </div>
 
-      <!--modal 2do-->
-      <div class="modal fade" id="Modal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <h1 class="title">Tierra de hojas</h1>
-              <p class="text"></p>
-              <p class="text"></p>
-              <p class="text">Precio: $10990</p>
-              <p class="text">Descripcion: </p>
-              <img id="img_pt"  src="https://www.fertiberia.com/media/76368/tierra.jpg" >
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      
-      <!--modal 3ro -->
-      <div class="modal fade" id="Modal3ro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <h1 class="title">Tierra de hojas</h1>
-              <p class="text"></p>
-              <p class="text"></p>
-              <p class="text">Precio: $10990</p>
-              <p class="text">Descripcion: </p>
-              <img id="img_pt"  src="https://sodimac.scene7.com/is/image/SodimacCL/22357?fmt=jpg&fit=constrain,1&wid=712&hei=712" >
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      
-      <!--modal 4to-->
-      <div class="modal fade" id="Modal4to" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <h1 class="title">Tierra de hojas</h1>
-              <p class="text"></p>
-              <p class="text"></p>
-              <p class="text">Precio: $10990</p>
-              <p class="text">Descripcion: </p>
-              <img id="img_pt"  src="https://th.bing.com/th/id/OIP.op_779YBaOPnhZiCbiYmyQAAAA?pid=ImgDet&rs=1" >
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-          
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <!--acá termina los productos-->
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
         
 
       <footer>
