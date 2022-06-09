@@ -194,7 +194,7 @@
       </div>
 
       <!---productos-->
-      <div class="conteiner col-md-8" style="margin-left: 15%; margin-right: 15%; margin-bottom: 5%;">
+      <div class="container col-md-8" style="margin-left: 15%; margin-right: 15%; margin-bottom: 5%;">
         <div class="row">
           <div class="lista col-12"> 
             <h4 id="productos">Arbustos</h4>
@@ -207,7 +207,7 @@
               <div class="card-body">
                 <h5 class="card-title" values={{pr.nombreP}} id="comparacion">{{pr.nombreP}}</h5>
                     <p class="card-text">Precio: ${{pr.precio}}</p> 
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal7">Comprar</a>
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal7" id="idcomprar">Comprar</a>
               </div>
             </div>
           </div>
@@ -225,7 +225,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <h1 class="title">{{pr.nombreP}}</h1>
+              <h1 class="title" id="idnombre">{{pr.nombreP}}</h1>
               <p class="text"></p>
               <p class="text"></p>
               <p class="text">Precio: ${{pr.precio}}</p>
@@ -233,14 +233,28 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Agregar al carro</button>
+              <button type="button" class="btn btn-primary" id="agregaralcarro">Agregar al carro</button>
             </div>
           </div>
         </div>
       </div>
       {% endfor %}
 
+      <script type="text/javascript">
+        $(document).ready(function () {
+          $("#idcomprar").click(function () {
+              var nom = $("#comparacion").val();
+              if (nom.Equals(idnombre)) {
+                $("#comunas").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
+                
 
+              }
+
+              });
+            });
+      </script>
+
+         
       <footer>
         <div class="container">
             <div class="row">
