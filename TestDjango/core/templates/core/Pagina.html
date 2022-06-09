@@ -21,92 +21,92 @@
 
 </head>
   <body>
-      <header>
-        <div class="container" style="margin-bottom: 1%;">
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="static\core/img/logo.png" alt="Jardineria">
-                </div>
-                <div class="col-md-6" style="text-align: end;">
-
-                    <ul class="social-header list-inline text-xs-right">
-                        <li class="list-inline-item">
-                            <a href="https://www.facebook.com/login.php">
-                                <span class="fa-stack fa.lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                            </a>
-                            <a href="https://twitter.com/i/flow/login">
-                                <span class="fa-stack fa.lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                            </a>
-                            <a href="https://www.youtube.com/">
-                                <span class="fa-stack fa.lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
-                            </a>
-                            <a href="https://www.instagram.com/accounts/login/">
-                                <span class="fa-stack fa.lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid" style="background-color: #33d80a;">
-            <a class="navbar-brand" href="http://127.0.0.1:8000">Inicio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/quienes_somos">Quienes somos</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="http://127.0.0.1:8000/Producto">Productos</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Categorias
-                  </a>
-                
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="http://127.0.0.1:8000/Macetero">Maceteros</a></li>
-                    <li><a class="dropdown-item" href="http://127.0.0.1:8000/Flores">Flores</a></li>
-                    <li><a class="dropdown-item" href="http://127.0.0.1:8000/tierra_de_hojas">Tierra de hojas</a></li>
-                    <li><a class="dropdown-item" href="http://127.0.0.1:8000/Arbustos">Arbustos</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="http://127.0.0.1:8000/Producto">Ver todos los productos</a></li>
-                  </ul>
-                </li>
-                <!--
-                  <li class="nav-item">
-                  <a class="nav-link disabled">Disabled</a>
-                </li>
-              -->
-              <li class="nav-item" > 
-                <a class="nav-link"  href="http://127.0.0.1:8000/inicio">Cerrar Sesión</a>
-              </li>
-              
-              </ul>
-              <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Buscar en JardiLife.cl" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-              </form>
-              <div style="margin: 1%;">
-                <i class="fa-solid fa-cart-shopping" data-bs-toggle="modal" data-bs-target="#modalcarrito"></i>
+    <header>
+      <div class="container" style="margin-bottom: 1%;">
+          <div class="row">
+              <div class="col-md-6">
+                  <img src="static\core/img/logo.png" alt="Jardineria">
               </div>
+              <div class="col-md-6" style="text-align: end;">
+
+                  <ul class="social-header list-inline text-xs-right">
+                      <li class="list-inline-item">
+                          <a href="https://www.facebook.com/login.php">
+                              <span class="fa-stack fa.lg">
+                                  <i class="fas fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                          </a>
+                          <a href="https://twitter.com/i/flow/login">
+                              <span class="fa-stack fa.lg">
+                                  <i class="fas fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                          </a>
+                          <a href="https://www.youtube.com/">
+                              <span class="fa-stack fa.lg">
+                                  <i class="fas fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                          </a>
+                          <a href="https://www.instagram.com/accounts/login/">
+                              <span class="fa-stack fa.lg">
+                                  <i class="fas fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                          </a>
+                      </li>
+                  </ul>
+
+              </div>
+          </div>
+      </div>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid" style="background-color: #33d80a;">
+          <a class="navbar-brand" href="{% url 'Pagina' %}">Inicio</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'quienes_somos' %}">Quienes somos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'p' %}">Productos</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categorias
+                </a>
+              
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{% url 'Macetero' %}">Maceteros</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Flores' %}">Flores</a></li>
+                  <li><a class="dropdown-item" href="{% url 'tierra_de_hojas' %}">Tierra de hojas</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Arbustos' %}">Arbustos</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'p' %}">Ver todos los productos</a></li>
+                </ul>
+              </li>
+              <!--
+                <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            -->
+            <li class="nav-item" > 
+              <a class="nav-link"  href="{% url 'inicio' %}">Cerrar Sesión</a>
+            </li>
+            
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Buscar en JardiLife.cl" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+            <div style="margin: 1%;">
+              <i class="fa-solid fa-cart-shopping" data-bs-toggle="modal" data-bs-target="#modalcarrito"></i>
             </div>
           </div>
-        </nav>
-      </header>
+        </div>
+      </nav>
+    </header>
       <!--modal carrito-->
       <div class="modal fade" id="modalcarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
