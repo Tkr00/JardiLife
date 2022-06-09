@@ -200,50 +200,20 @@
             <h4 id="productos">Arbustos</h4>
           </div>
           <!--Arbustos-->
+
+          {% for pr in producto %}
           <div class="col-sm-3" style="margin-top: 5%;">
             <div class="card" >
               <img id="img_pt"  src="https://th.bing.com/th/id/OIP.-SBCeCoRNQmeIyLucGR6hAHaF6?pid=ImgDet&rs=1" >
               <div class="card-body">
-                <h5 class="card-title">Arbusto forma circular</h5>
-                    <p class="card-text">Precio: $40990
-                    </p>
+                <h5 class="card-title">{{pr.nombreP}}</h5>
+                    <p class="card-text">{{pr.precio}}
+                    </p> 
                 <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal7">Comprar</a>
               </div>
             </div>
           </div>
-          <div class="col-sm-3" style="margin-top: 5%;">
-            <div class="card" >
-              <img id="img_pt"  src="https://thumbs.dreamstime.com/b/bush-ou-arbusto-isolado-no-fundo-branco-com-os-trajetos-de-grampeamento-para-o-projeto-do-jardim-145158041.jpg" >
-              <div class="card-body">
-                <h5 class="card-title">Arbusto grande</h5>
-                    <p class="card-text">Precio: $60990
-                    </p>
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal8">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3" style="margin-top: 5%;">
-            <div class="card" >
-              <img id="img_pt"  src="https://static8.depositphotos.com/1004099/946/i/600/depositphotos_9469669-stock-photo-bigleaf-hydrangea-bush-isolated-on.jpg" >
-              <div class="card-body">
-                <h5 class="card-title">Arbusto grande</h5>
-                    <p class="card-text">Precio: $60990
-                    </p>
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal99">Comprar</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3" style="margin-top: 5%;">
-            <div class="card" >
-              <img id="img_pt"  src="https://static8.depositphotos.com/1004099/986/i/450/depositphotos_9862433-stock-photo-eastern-arborvitae-bush-isolated-on.jpg" >
-              <div class="card-body">
-                <h5 class="card-title">Arbusto grande</h5>
-                    <p class="card-text">Precio: $60990
-                    </p>
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal11">Comprar</a>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
       <!--acá termina los productos-->
