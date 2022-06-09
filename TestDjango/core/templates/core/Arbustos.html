@@ -200,15 +200,13 @@
             <h4 id="productos">Arbustos</h4>
           </div>
           <!--Arbustos-->
-
           {% for pr in producto %}
           <div class="col-sm-3" style="margin-top: 5%;">
             <div class="card" >
               <img id="img_pt"  src="https://th.bing.com/th/id/OIP.-SBCeCoRNQmeIyLucGR6hAHaF6?pid=ImgDet&rs=1" >
               <div class="card-body">
                 <h5 class="card-title">{{pr.nombreP}}</h5>
-                    <p class="card-text">{{pr.precio}}
-                    </p> 
+                    <p class="card-text">Precio: ${{pr.precio}}</p> 
                 <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal7">Comprar</a>
               </div>
             </div>
@@ -223,17 +221,17 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            {% for pr in producto %}
             <div class="modal-body">
-              <h1 class="title">Arbusto forma circular</h1>
+              <h1 class="title">{{pr.nombreP}}</h1>
               <p class="text"></p>
               <p class="text"></p>
-              <p class="text">Precio: $40990</p>
-              <p class="text">Descripcion: </p>
+              <p class="text">Precio: ${{pr.precio}}</p>
               <img id="img_pt"  src="https://th.bing.com/th/id/OIP.-SBCeCoRNQmeIyLucGR6hAHaF6?pid=ImgDet&rs=1" >
             </div>
+            {% endfor %}
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
               <button type="button" class="btn btn-primary">Pagar</button>
@@ -241,105 +239,6 @@
           </div>
         </div>
       </div>
-
-      <!--modal 8-->
-      <div class="modal fade" id="Modal8" tabindex="-1" aria-labelledby="exampleModalLabel"  aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <h1 class="title">Arbusto grande</h1>
-              <p class="text"></p>
-              <p class="text"></p>
-              <p class="text">Precio: $60990</p>
-              <p class="text">Descripcion: </p>
-              <img id="img_pt"  src="https://th.bing.com/th/id/OIP.gQSEA8ByzjfMJoWmYm_zpAHaIx?pid=ImgDet&w=760&h=900&rs=1" >
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-            <!--modal 8-->
-            <div class="modal fade" id="Modal99" tabindex="-1" aria-labelledby="exampleModalLabel"  aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <h1 class="title">Arbusto grande</h1>
-                    <p class="text"></p>
-                    <p class="text"></p>
-                    <p class="text">Precio: $60990</p>
-                    <p class="text">Descripcion: </p>
-                    <img id="img_pt"  src="https://static8.depositphotos.com/1004099/946/i/600/depositphotos_9469669-stock-photo-bigleaf-hydrangea-bush-isolated-on.jpg" >
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Pagar</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-                <!--modal 8-->
-      <div class="modal fade" id="Modal11" tabindex="-1" aria-labelledby="exampleModalLabel"  aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <h1 class="title">Arbusto grande</h1>
-              <p class="text"></p>
-              <p class="text"></p>
-              <p class="text">Precio: $60990</p>
-              <p class="text">Descripcion: </p>
-              <img id="img_pt"  src="https://static8.depositphotos.com/1004099/986/i/450/depositphotos_9862433-stock-photo-eastern-arborvitae-bush-isolated-on.jpg" >
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
-
-
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de compra</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-        
-
       <footer>
         <div class="container">
             <div class="row">
