@@ -11,10 +11,9 @@ class Categoria(models.Model):
     def __str__(self):
         return self.nombreCategoria
 
-#Modelo Arbustos
 class Producto(models.Model):
     nombreP = models.CharField(primary_key=True,max_length=50,verbose_name='Nombre Producto')
-    precio = models.CharField(max_length=6,verbose_name='Precio Arbusto')
+    precio = models.CharField(max_length=6,verbose_name='Precio Producto')
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
     
     def __str__(self):
