@@ -78,9 +78,9 @@
                 </a>
               
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="{% url 'Macetero' %}">Maceteros</a></li>
-                  <li><a class="dropdown-item" href="{% url 'Flores' %}">Flores</a></li>
-                  <li><a class="dropdown-item" href="{% url 'tierra_de_hojas' %}">Tierra de hojas</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Macetero' 4 %}">Maceteros</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Flores' 3 %}">Flores</a></li>
+                  <li><a class="dropdown-item" href="{% url 'tierra_de_hojas' 2 %}">Tierra de hojas</a></li>
                   <li><a class="dropdown-item" href="{% url 'Arbustos' 1 %}">Arbustos</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="{% url 'p' %}">Ver todos los productos</a></li>
@@ -205,7 +205,7 @@
             <div class="card" >
               <img id="img_pt"  src="https://th.bing.com/th/id/OIP.-SBCeCoRNQmeIyLucGR6hAHaF6?pid=ImgDet&rs=1" >
               <div class="card-body">
-                <h5 class="card-title">{{pr.nombreP}}</h5>
+                <h5 class="card-title" values={{pr.nombreP}} id="compa">{{pr.nombreP}}</h5>
                     <p class="card-text">Precio: ${{pr.precio}}</p> 
                 <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal7">Comprar</a>
               </div>
@@ -217,13 +217,14 @@
       <!--acá termina los productos-->
 
       <!--modal 7-->
+      {% for pr in producto %}
+      {%if {{pr.nombreP}} == #compa%}
       <div class="modal fade" id="Modal7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            {% for pr in producto %}
             <div class="modal-body">
               <h1 class="title">{{pr.nombreP}}</h1>
               <p class="text"></p>
@@ -231,14 +232,17 @@
               <p class="text">Precio: ${{pr.precio}}</p>
               <img id="img_pt"  src="https://th.bing.com/th/id/OIP.-SBCeCoRNQmeIyLucGR6hAHaF6?pid=ImgDet&rs=1" >
             </div>
-            {% endfor %}
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
+              <button type="button" class="btn btn-primary">Agregar al carro</button>
             </div>
           </div>
         </div>
       </div>
+      {% endif %}
+      {% endfor %}
+
+
       <footer>
         <div class="container">
             <div class="row">
