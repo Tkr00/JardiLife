@@ -19,6 +19,7 @@
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+  </head>
   <body>
     <header>
       <div class="container" style="margin-bottom: 1%;">
@@ -77,9 +78,9 @@
                 </a>
               
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="{% url 'Macetero' %}">Maceteros</a></li>
-                  <li><a class="dropdown-item" href="{% url 'Flores' %}">Flores</a></li>
-                  <li><a class="dropdown-item" href="{% url 'tierra_de_hojas' %}">Tierra de hojas</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Macetero' 4 %}">Maceteros</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Flores' 3 %}">Flores</a></li>
+                  <li><a class="dropdown-item" href="{% url 'tierra_de_hojas' 2 %}">Tierra de hojas</a></li>
                   <li><a class="dropdown-item" href="{% url 'Arbustos' 1 %}">Arbustos</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="{% url 'p' %}">Ver todos los productos</a></li>

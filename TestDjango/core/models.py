@@ -15,6 +15,6 @@ class Producto(models.Model):
     nombreP = models.CharField(primary_key=True,max_length=50,verbose_name='Nombre Producto')
     precio = models.CharField(max_length=6,verbose_name='Precio Producto')
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
-    
+    imagen = models.ImageField(upload_to='productos',null=True)
     def __str__(self):
         return self.nombreP

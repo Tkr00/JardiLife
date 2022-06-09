@@ -203,7 +203,9 @@
           {% for pr in producto %}
           <div class="col-sm-3" style="margin-top: 5%;">
             <div class="card" >
-              <img id="img_pt"  src="https://th.bing.com/th/id/OIP.-SBCeCoRNQmeIyLucGR6hAHaF6?pid=ImgDet&rs=1" >
+              {% if pr.imagen %}
+              <img id="img_pt" src="{{ pr.imagen.url }}">
+              {% endif %}
               <div class="card-body">
                 <h5 class="card-title" values={{pr.nombreP}} id="comparacion">{{pr.nombreP}}</h5>
                     <p class="card-text">Precio: ${{pr.precio}}</p> 
@@ -229,7 +231,11 @@
               <p class="text"></p>
               <p class="text"></p>
               <p class="text">Precio: ${{pr.precio}}</p>
-              <img id="img_pt"  src="https://th.bing.com/th/id/OIP.-SBCeCoRNQmeIyLucGR6hAHaF6?pid=ImgDet&rs=1" >
+
+              {% if pr.imagen %}
+              <img id="img_pt" src="{{ pr.imagen.url }}" width="300" height="200">
+              {% endif %}
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
