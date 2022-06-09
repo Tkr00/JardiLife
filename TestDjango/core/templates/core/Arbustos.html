@@ -16,6 +16,7 @@
 
     <!-- Main Css -->
     <link rel="stylesheet" href="static\core/css/style.css" type="text/css">
+    
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -209,25 +210,18 @@
               <div class="card-body">
                 <h5 class="card-title" values={{pr.nombreP}} id="comparacion">{{pr.nombreP}}</h5>
                     <p class="card-text">Precio: ${{pr.precio}}</p> 
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#{{pr.nombreP}} id="idcomprar">Comprar</a>
+                    <button type="button" class="btn btn-success openBtn" data-bs-target="#Modal7">Comprar</button>
               </div>
             </div>
             <!--Modal-->
-            <div class="modal fade" id={{pr.nombreP}} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="Modal7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <h1 class="title" id="idnombre">{{pr.nombreP}}</h1>
-                    <p class="text"></p>
-                    <p class="text"></p>
-                    <p class="text">Precio: ${{pr.precio}}</p>
-      
-                    {% if pr.imagen %}
-                    <img id="img_pt" src="{{ pr.imagen.url }}" width="300" height="200">
-                    {% endif %}
+                    
       
                   </div>
                   <div class="modal-footer">
@@ -242,6 +236,15 @@
           {% endfor %}
         </div>
       </div>
+
+      
+      <script>
+        $('.openBtn').on('click',function(){
+            $('.modal-body').load('getContent.py?id=2',function(){
+                $('#Modal7').modal({show:true});
+            });
+        });
+        </script>
       <!--acá termina los productos-->
 
      
