@@ -208,9 +208,9 @@
               <img id="img_pt" src="{{ pr.imagen.url }}">
               {% endif %}
               <div class="card-body">
-                <h5 class="card-title" values={{pr.nombreP}} id="comparacion">{{pr.nombreP}}</h5>
+                <h5 class="card-title">{{pr.nombreP}}</h5>
                     <p class="card-text">Precio: ${{pr.precio}}</p> 
-                    <button type="button" class="btn btn-success openBtn" data-bs-target="#Modal7">Comprar</button>
+                    <a href="{% url 'form_produc' pr.nombreP %}"></a><button type="button" class="btn btn-success openBtn">Comprar</button></a>
               </div>
             </div>
             <!--Modal-->
@@ -236,15 +236,6 @@
           {% endfor %}
         </div>
       </div>
-
-      
-      <script>
-        $('.openBtn').on('click',function(){
-            $('.modal-body').load('getContent.py?id=2',function(){
-                $('#Modal7').modal({show:true});
-            });
-        });
-        </script>
       <!--acá termina los productos-->
 
      
