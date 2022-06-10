@@ -52,6 +52,14 @@ def form_carrito(request,id):
     producto=Producto.objects.filter(nombreP=nombre)
     return render(request,'core/form_carrito.html',{'producto':producto})
 
+def ListProduc(request):
+    producto = Producto.objects.all()
+
+    datos = {
+        'productos': producto
+    }
+    return render(request,'core/ListProduc.html',datos)
+
 def form_mod_producto(request,id):
 
     producto = Producto.objects.get(nombreP=id)
@@ -67,3 +75,12 @@ def form_mod_producto(request,id):
             datos['mensaje'] = "Modificacion realizada Correctamente"
 
     return render(request, 'core/form_mod_producto.html',datos)
+
+def form_del_producto(request,id):
+
+    producto = Producto.objects.get(nombreP=id)
+
+    producto.delete()
+
+    return redirect(to='ListProduc')
+
