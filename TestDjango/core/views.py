@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .forms import Producform
 from .models import Categoria, Producto
 from django.http import HttpResponse
@@ -56,7 +56,7 @@ def ListProduc(request):
     producto = Producto.objects.all()
 
     datos = {
-        'productos': producto
+        'producto': producto
     }
     return render(request,'core/ListProduc.html',datos)
 

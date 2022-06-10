@@ -13,6 +13,6 @@ urlpatterns = [
     path('form_produc/<id>',form_produc,name='form_produc'),
     path('form_carrito/<id>',form_carrito,name='form_carrito'),
     path('form_mod_producto/<id>',form_mod_producto,name='form_mod_producto'),
-    path('ListProduc/<id>',ListProduc,name='ListProduc'),
+    path('ListProduc',ListProduc,name='ListProduc'),
     path('form_del_producto/<id>',form_del_producto,name='form_del_producto')
 ]

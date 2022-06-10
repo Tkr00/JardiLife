@@ -23,7 +23,7 @@
                 <thead>
                     <tr>
                         <th scope="col">
-                            Nombre Producto
+                            Nombre
                         </th>
                         <th scope="col">
                             Precio
@@ -51,9 +51,9 @@
                         <td>{{ve.nombreP}}</td>
                         <td>{{ve.precio}}</td>
                         <td>{{ve.categoria}}</td>
-                        {% if pr.imagen %}
+                        {% if ve.imagen %}
                         <td>
-                            <img id="img_pt" src="{{ pr.imagen.url }}">
+                            <img id="img_pt" src="{{ ve.imagen.url }}">
                         </td>
                         {% endif %}
                         <td>{{ve.stock}}</td>
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="modal-footer">
                 
-                                    <a href="{% url 'form_mod_producto' ve.nombreP %}"><button type="button"
+                                    <a href="{% url 'form_del_producto' ve.nombreP %}"><button type="button"
                                             class="btn btn-primary">Eliminar</button></a>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                 </div>
