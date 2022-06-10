@@ -194,20 +194,22 @@
         </div>
     </div>
     {% for pr in producto %}
-    <div class="row" style="margin-top: 0%; margin-bottom:2%; color: rgb(53, 154, 35); ">
+    <div class="row" style="color: rgb(53, 154, 35); ">
       <h2> Visualización de producto </h2>
     </div>
     <div class="row d-flex justify-content-center">
       <div class="col-sm-6" style="text-align: center; margin-top: 0%; margin-bottom:2%">
-      <h1 class="text-center" style="text-decoration:underline">{{pr.nombreP}}</h1>
+      <h1 class="text-center" style="text-decoration:underline; float: center;">{{pr.nombreP}}</h1>
         {% if pr.imagen %}
         <img id="img_pt" src="{{ pr.imagen.url }}" style="width: 40%; height: 70%; float: left;  ">
         {% endif %}
         <div class="col-sm-6" style="text-align: center; border-style: solid; float: right; margin-top: 5%; margin-bottom:5%" >
         <p>Precio: ${{pr.precio}}</p>
         <p>Categoria: {{pr.categoria}}</p>
-        <a href="{% url 'form_carrito' pr.nombreP %}"><button type="button" class="btn btn-primary">Agregar</button></a>
-        </div>
+        <hr>
+        <a href="{% url 'form_carrito' pr.nombreP %}"><button type="button" class="btn btn-primary">Agregar al carro</button></a>
+        <hr>
+      </div>
         </div>
     </div>
     {% endfor %}
