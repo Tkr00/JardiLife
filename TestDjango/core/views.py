@@ -8,8 +8,8 @@ from django.http import HttpResponse
 
 
 def Pagina(request):
-    
-    return render(request,'core/Pagina.html',)
+    producto = Producto.objects.all()
+    return render(request,'core/Pagina.html',{'producto':producto})
 def inicio(request):
     
     return render(request,'core/inicio.html',)
@@ -30,7 +30,8 @@ def Arbustos(request,id):
     return render(request,'core/Arbustos.html',{'categoria':categorias,'producto':producto})
 
 def p(request):  
-    return render(request,'core/p.html',)    
+    producto = Producto.objects.all()
+    return render(request,'core/p.html',{'producto': producto})    
 
 def quienes_somos(request):  
     return render(request,'core/quienes_somos.html',)   
