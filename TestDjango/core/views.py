@@ -38,8 +38,9 @@ def tierra_de_hojas(request,id):
     categorias = Categoria.objects.get(idCategoria=id)
     producto=Producto.objects.filter(categoria=categorias)
     return render(request,'core/tierra_de_hojas.html',{'categoria':categorias,'producto':producto})  
+
 def form_produc(request,id):
     nombre = Producto.objects.get(nombreP=id)
     producto=Producto.objects.filter(nombreP=nombre)
-    return render(request,'core/form_produc',{'nombre': nombre,'producto':producto})  
+    return render(request,'core/form_produc.html',{'producto':producto})  
 

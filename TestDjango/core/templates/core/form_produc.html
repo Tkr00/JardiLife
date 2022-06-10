@@ -193,82 +193,39 @@
           </div>
         </div>
     </div>
+    {% for ve in producto %}
     <div class="row">
-      <h1 class="text-center">Listado Vehiculos</h1>
-  </div>
-  <div class="row d-flex justify-content-center">
+      <h1 class="text-center">{{ve.nombreP}}</h1>
+    </div>
+    <div class="row d-flex justify-content-center">
       <div class="col-sm-6 ">
-          <table class="table table-dark table-striped table-bordered">
-              <thead>
-                  <tr>
-                      <th scope="col">
-                          Nombre
-                      </th>
-                      <th scope="col">
-                          precio
-                      </th>
-                      <th scope="col">
-                          categoria
-                      </th>
-                      <th cope="col">
-                          imagen
-                      </th>
-                  </tr>
-              </thead>
-              <tbody>
-                  {% for ve in producto %}
-                  <tr>
-                      <td>{{ve.nombreP}}</td>
-                      <td>{{ve.precio}}</td>
-                      <td>{{ve.categoria}}</td>
-                      {% if pr.imagen %}
-                      <td><img id="img_pt" src="{{ ve.imagen.url }}"></td>
-                      {% endif %}
-                  </tr>
-                  <!--
-                  <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                          <div class="modal-content">
-                              <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                                  Desea eliminar este registro?
-                              </div>
-                              <div class="modal-footer">
-              
-                                  <a href="{% url 'form_del_vehiculo' ve.patente %}"><button type="button"
-                                          class="btn btn-primary">Eliminar</button></a>
-                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                              </div>
-                          </div>
-                      </div>
-                    </div>
-                    -->
-                  {% endfor %}
-              </tbody>
-          </table>
-
-          <a href="{% url 'form_vehiculo' %}"><button type="button" class="btn btn-primary">Agregar</button></a>
+        {% if pr.imagen %}
+        <img id="img_pt" src="{{ ve.imagen.url }}">
+        {% endif %}
+        <p>Precio: ${{ve.precio}}</p>
+        <p>Categoria: {{ve.categoria}}</p>
+          <a href="{% url 'Pagina' %}"><button type="button" class="btn btn-primary">Agregar</button></a>
       </div>
-  </div>
+    </div>
+    {% endfor %}
     <div class="row">
         <h1></h1>
     </div>
-    <div class="row">
+    <!-- esto sirve para el modificar y eliminar -->
+    <!--<div class="row">
         <form method="POST" action="" id="formulario">
             {% csrf_token %}
             <div class="form-group">
                 {{form.as_table}}
             </div>
+          <div>
             <a href="{% url 'Pagina' %}"><button type="button" class="btn btn-primary" id="agregaralcarro">Agregar al carro</button></a>
             
             <a href="{% url 'Pagina' %}"><button type="button" class="btn btn-secondary">Volver al inicio</button></a>
-            </div>
+          </div>
         </form>
     </div>
-      <button type="button" class="btn btn-primary" id="agregaralcarro">Agregar al carro</button>
+    -->
       <footer>
         <div class="container">
             <div class="row">
