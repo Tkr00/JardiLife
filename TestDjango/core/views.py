@@ -44,4 +44,12 @@ def form_produc(request,id):
     nombre = Producto.objects.get(nombreP=id)
     producto=Producto.objects.filter(nombreP=nombre)
     return render(request,'core/form_produc.html',{'producto':producto})
+    
+def form_carrito(request):   
+    if request.method=='POST':
+        formulario =  Producform(request.POST)
 
+        if formulario.is_valid:
+            formulario.save()
+
+    return render(request,'core/form_carrito.html',{'producto':Producform()})
