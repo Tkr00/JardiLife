@@ -206,7 +206,7 @@
         <div class="col-sm-6" style="text-align: center; border-style: solid; float: right; margin-top: 5%; margin-bottom:5%" >
         <p>Precio: ${{pr.precio}}</p>
         <p>Categoria: {{pr.categoria}}</p>
-        <a href="{% url 'Pagina' %}"><button type="button" class="btn btn-primary">Agregar</button></a>
+        <a href="{% url 'form_carrito' pr.nombreP %}"><button type="button" class="btn btn-primary">Agregar</button></a>
         </div>
         </div>
     </div>
@@ -215,20 +215,6 @@
         <h1></h1>
     </div>
     <!-- esto sirve para el modificar y eliminar -->
-    <!--<div class="row">
-        <form method="POST" action="" id="formulario">
-            {% csrf_token %}
-            <div class="form-group">
-                {{form.as_table}}
-            </div>
-          <div>
-            <a href="{% url 'Pagina' %}"><button type="button" class="btn btn-primary" id="agregaralcarro">Agregar al carro</button></a>
-            
-            <a href="{% url 'Pagina' %}"><button type="button" class="btn btn-secondary">Volver al inicio</button></a>
-          </div>
-        </form>
-    </div>
-    -->
       <footer>
         <div class="container">
             <div class="row">
