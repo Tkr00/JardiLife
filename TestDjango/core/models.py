@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.db import models
 
 # Create your models here.
@@ -16,5 +17,6 @@ class Producto(models.Model):
     precio = models.CharField(max_length=6,verbose_name='Precio Producto')
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
     imagen = models.ImageField(upload_to='productos',null=True)
+    stock = models.IntegerField(default=0, verbose_name='Stock')
     def __str__(self):
         return self.nombreP

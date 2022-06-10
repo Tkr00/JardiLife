@@ -45,5 +45,3 @@ def form_produc(request,id):
     producto=Producto.objects.filter(nombreP=nombre)
     return render(request,'core/form_produc.html',{'producto':producto})
 
-  
-
