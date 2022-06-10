@@ -193,17 +193,17 @@
           </div>
         </div>
     </div>
-    {% for ve in producto %}
+    {% for pr in producto %}
     <div class="row">
-      <h1 class="text-center">{{ve.nombreP}}</h1>
+      <h1 class="text-center">{{pr.nombreP}}</h1>
     </div>
     <div class="row d-flex justify-content-center">
       <div class="col-sm-6 ">
         {% if pr.imagen %}
-        <img id="img_pt" src="{{ ve.imagen.url }}">
+        <img id="img_pt" src="{{ pr.imagen.url }}" style="width: 40%; height: 55%; ">
         {% endif %}
-        <p>Precio: ${{ve.precio}}</p>
-        <p>Categoria: {{ve.categoria}}</p>
+        <p>Precio: ${{pr.precio}}</p>
+        <p>Categoria: {{pr.categoria}}</p>
           <a href="{% url 'Pagina' %}"><button type="button" class="btn btn-primary">Agregar</button></a>
       </div>
     </div>
