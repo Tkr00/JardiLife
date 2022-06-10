@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import Producform
 from .models import Categoria, Producto
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -42,5 +43,7 @@ def tierra_de_hojas(request,id):
 def form_produc(request,id):
     nombre = Producto.objects.get(nombreP=id)
     producto=Producto.objects.filter(nombreP=nombre)
-    return render(request,'core/form_produc.html',{'producto':producto})  
+    return render(request,'core/form_produc.html',{'producto':producto})
+
+  
 
