@@ -50,3 +50,19 @@ def form_carrito(request,id):
     nombre = Producto.objects.get(nombreP=id)
     producto=Producto.objects.filter(nombreP=nombre)
     return render(request,'core/form_carrito.html',{'producto':producto})
+
+def form_mod_producto(request,id):
+
+    producto = Producto.objects.get(nombreP=id)
+
+    datos = {
+        'form': Producform(instance=producto)
+    }
+
+    if request.method == 'POST':
+        formulario = Producform(data=request.POST,instance=producto)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje'] = "Modificacion realizada Correctamente"
+
+    return render(request, 'core/form_mod_producto.html',datos)
