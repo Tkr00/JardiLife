@@ -140,41 +140,40 @@
           </div>
         </div>
     </div>
-    {% for pr in producto %}
     <div class="row" style="margin-top: 0%; margin-bottom:2%; ">
       <h1 class="text-center"></h1>
     </div>
     <div class="row d-flex justify-content-center">
       <div class="col-sm-6" style="text-align: center;">
+        {% for pr in producto %}
         {% if pr.imagen %}
         <img id="img_pt" src="{{ pr.imagen.url }}" style="width: 40%; height: 55%;  ">
         {% endif %}
-        <h1>Nombre: {{pr.nombreP}}</h1>
+        <h6>Nombre: {{pr.nombreP}}</h6>
         <p>Precio: ${{pr.precio}}</p>
         <p>Categoria: {{pr.categoria}}</p>
         <div class="container-fluid">
           <div class="row">
-              <h6>Seleccione la region, provincia y comuna de envio</h6>
+            <h6>Seleccione la region, provincia y comuna de envio</h6>
           </div>
           <div class="row g-2">
-              <div class="col-md-12">
-                  <select id="regiones">
-                      <option active>Seleccione region</option>
-                  </select>
-  
-              </div>
-              <div class="col-md-12">
-                  <select id="provincia"></select>
-              </div>
-              <div class="col-md-12">
-                <select id="comunas"></select>
-              </div>
+            <div class="col-md-12">
+              <select id="regiones">
+                <option active>Seleccione region</option>
+              </select>
             </div>
+            <div class="col-md-12">
+              <select id="provincia"></select>
+            </div>
+            <div class="col-md-12">
+              <select id="comunas"></select>
+            </div>
+          </div>
             <a href="{% url 'Pagina' %}"><button type="button" class="btn btn-primary">Pagar</button></a>
+            {% endfor %}
         </div>
       </div>
     </div>
-    {% endfor %}
     <div class="row">
         <h1></h1>
     </div>
