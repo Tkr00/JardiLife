@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from .forms import Producform
 from .models import Categoria, Producto
 from django.http import HttpResponse
+from .carro import Carro
 
 # Create your views here.
 
@@ -47,10 +48,9 @@ def form_produc(request,id):
 
     return render(request,'core/form_produc.html',{'producto':producto})
 
-def form_carrito(request,id):   
-    nombre = Producto.objects.get(nombreP=id)
-    producto=Producto.objects.filter(nombreP=nombre)
-    return render(request,'core/form_carrito.html',{'producto':producto})
+def form_carrito(request):   
+
+    return render(request,'core/form_carrito.html')
 
 def ListProduc(request):
     producto = Producto.objects.all()
@@ -84,3 +84,25 @@ def form_del_producto(request,id):
 
     return redirect(to='ListProduc')
 
+def agregar_producto(request, nombre):
+    carro = Carro(request)
+    producto=Producto.objects.get(nombreP=nombre)
+    carro.agregar(producto=producto)
+    return redirect(to='form_carrito')
+
+def eliminar_producto(request, nombre):
+    carro = Carro(request)
+    producto=Producto.objects.get(nombreP=nombre)
+    carro.eliminar(producto=producto)
+    return redirect(to='form_carrito')
+
+def restar_producto(request, nombre):
+    carro = Carro(request)
+    producto=Producto.objects.get(nombreP=nombre)
+    carro.restar_producto(producto=producto)
+    return redirect(to='form_carrito')
+
+def limpiar_carro(request):
+    carro = Carro(request)
+    carro.limpiar_carro()
+    return redirect(to='form_carrito')

@@ -100,58 +100,40 @@
               <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
             <div style="margin: 1%;">
-              <i class="fa-solid fa-cart-shopping" data-bs-toggle="modal" data-bs-target="#modalcarrito"></i>
+              <a href="{% url 'form_carrito' %}"><button type="button" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></button></a>
             </div>
           </div>
         </div>
       </nav>
     </header>
-      <!--modal carrito-->
-    <div class="modal fade" id="modalcarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de Compra</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="container-fluid">
-                <div class="col-md-12">
-                    <img id="img_pt"  src="https://th.bing.com/th/id/OIP.9bIt7MWy8o24bItqrZ2pzAAAAA?pid=ImgDet&rs=1" >
-                    <h2 style="text-align: right;">Macetero Marron Grande</h2>
-                    <p class="text" style="text-align: right;">Valor: $4900</p>
-                </div>
-                <div class="col-md-12">
-                  <img id="img_pt"  src="https://th.bing.com/th/id/OIP.9bIt7MWy8o24bItqrZ2pzAAAAA?pid=ImgDet&rs=1">
-                  <h2 style="text-align: right;">Macetero Marron Grande</h2>
-                  <p class="text" style="text-align: right;">Valor: $4900</p>
-                </div>
-              <hr></hr>
-
-                <div class="col-md-12" style="text-align: right;">
-                  <h2>Total a Pagar:$9800</h2>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer" style="text-align: center;">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
-            </div>
-          </div>
-        </div>
-    </div>
     <div class="row" style="margin-top: 0%; margin-bottom:2%; ">
       <h1 class="text-center"></h1>
     </div>
     <div class="row d-flex justify-content-center">
-      <div class="col-sm-6" style="text-align: center;">
-        {% for pr in producto %}
-        {% if pr.imagen %}
-        <img id="img_pt" src="{{ pr.imagen.url }}" style="width: 40%; height: 55%;  ">
-        {% endif %}
-        <h6>Nombre: {{pr.nombreP}}</h6>
-        <p>Precio: ${{pr.precio}}</p>
-        <p>Categoria: {{pr.categoria}}</p>
+          {% if request.session.carro.items %}
+            {% for key, value in request.session.carro.items %}
+          <div class="col-sm-3" style="margin-top: 5%;">
+            <div class="card" >
+              <img id="img_pt" src="{{ value.imagen }}">
+              <div class="card-body">
+                <h5 class="card-title">{{value.nombre}}</h5>
+                    <a href="{% url 'agregar' value.nombre %}"><button type="button" class="btn btn-success openBtn">+</button></a>
+                    <a href="{% url 'restar' value.nombre %}"><button type="button" class="btn btn-success openBtn">-</button></a>
+                    <p class="card-text">Precio: ${{value.precio}}</p> 
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+          {% else %}
+              <div class="alert alert-danger text-center">
+                  Sin Productos
+              </div>
+          {% endif %}
+        </div>
+        <div class="container">
+          Total: ${{total_carro}}
+        </div>
+      </div>
         <div class="container-fluid">
           <div class="row">
             <h6>Seleccione la region, provincia y comuna de envio</h6>
@@ -170,7 +152,6 @@
             </div>
           </div>
             <a href="{% url 'Pagina' %}"><button type="button" class="btn btn-primary">Pagar</button></a>
-            {% endfor %}
         </div>
       </div>
     </div>

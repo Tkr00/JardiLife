@@ -99,97 +99,12 @@
             <button class="btn btn-outline-success" type="submit">Buscar</button>
           </form>
           <div style="margin: 1%;">
-            <i class="fa-solid fa-cart-shopping" data-bs-toggle="modal" data-bs-target="#modalcarrito"></i>
+            <a href="{% url 'form_carrito' %}"><button type="button" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></button></a>
           </div>
         </div>
       </div>
     </nav>
   </header>
-      <!--modal carrito-->
-      <div class="modal fade" id="modalcarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de Compra</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="container-fluid">
-                <div class="col-md-12">
-                    <img id="img_pt"  src="https://th.bing.com/th/id/OIP.9bIt7MWy8o24bItqrZ2pzAAAAA?pid=ImgDet&rs=1" >
-                    <h2 style="text-align: right;">Macetero Marron Grande</h2>
-                    <p class="text" style="text-align: right;">Valor: $4900</p>
-                </div>
-                <div class="col-md-12">
-                  <img id="img_pt"  src="https://th.bing.com/th/id/OIP.9bIt7MWy8o24bItqrZ2pzAAAAA?pid=ImgDet&rs=1">
-                  <h2 style="text-align: right;">Macetero Marron Grande</h2>
-                  <p class="text" style="text-align: right;">Valor: $4900</p>
-                </div>
-
-                 <!-- Api Carrito -->
-                 <div class="container-fluid">
-                  <div class="row">
-                      <h6>Seleccione la region, provincia y comuna de envio</h6>
-                  </div>
-                  <div class="row g-2">
-                      <div class="col-md-12">
-                          <select id="regiones">
-                              <option active>Seleccione region</option>
-                          </select>
-          
-                      </div>
-                      <div class="col-md-12">
-                          <select id="provincia"></select>
-                      </div>
-                      <div class="col-md-12">
-                          <select id="comunas"></select>
-                      </div>
-                  </div>
-          
-              </div>
-              
-              <!-- Api regiones Carro de Compras-->
-              <script>
-                $.get("https://apis.digital.gob.cl/dpa/regiones", function (data) {
-                    $.each(data, function (i, data) {
-                        $("#regiones").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
-                    });
-                });
-        
-                $("#regiones").change(function () {
-                    $()
-                    $("#provincia").empty();
-                    $.get("https://apis.digital.gob.cl/dpa/regiones/" + $("#regiones").val() + "/provincias", function (data) {
-                        $.each(data, function (i, data) {
-                            $("#provincia").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
-                        });
-                    });
-                });
-        
-                $("#provincia").change(function () {
-                    $("#comunas").empty();
-                    $.get("https://apis.digital.gob.cl/dpa/provincias/" + $("#provincia").val() + "/comunas", function (data) {
-                        $.each(data, function (i, data) {
-                            $("#comunas").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
-                        });
-                    });
-                });
-            </script>
-
-              <hr></hr>
-
-                <div class="col-md-12" style="text-align: right;">
-                  <h2>Total a Pagar:$9800</h2>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Pagar</button>
-            </div>
-          </div>
-        </div>
-      </div>
       <h1 id="titulo-quienes">¿Quienes somos?</h1>
           <br>
           <p id="texto-principal">
