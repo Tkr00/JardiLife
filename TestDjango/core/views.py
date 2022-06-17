@@ -1,9 +1,11 @@
+from django import views
 from django.shortcuts import render,redirect
 from .forms import Producform
 from .models import Categoria, Producto
 from django.http import HttpResponse
 from .carro import Carro
-
+from django.views.generic import View
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 
@@ -106,3 +108,10 @@ def limpiar_carro(request):
     carro = Carro(request)
     carro.limpiar_carro()
     return redirect(to='form_carrito')
+
+class Registro(View):
+    def get(self, request):
+        form=UserCreationForm()
+        return render(request,"core/registro.html",{"form":form})
+    def post(self, request):
+        pass
