@@ -1,4 +1,3 @@
-from pyexpat.errors import messages
 from django import views
 from django.shortcuts import render,redirect
 from .forms import Producform
@@ -7,8 +6,9 @@ from django.http import HttpResponse
 from .carro import Carro
 from django.views.generic import View
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
 from django.contrib import messages
+
 # Create your views here.
 
 
@@ -121,8 +121,11 @@ class Registro(View):
         if form.is_valid():
             usuario=form.save()
             login(request, usuario)
-            return redirect(to='Pagina')
+            return redirect('Pagina')
         else:
             for msg in form.error_messages:
                 messages.error(request, form.error_messages[msg])
                 return render(request,"core/registro.html",{"form":form})
+def cerrar_sesion(request):
+    logout(request)
+    return redirect('Pagina')
