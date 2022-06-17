@@ -5,10 +5,9 @@ from .models import Categoria, Producto
 from django.http import HttpResponse
 from .carro import Carro
 from django.views.generic import View
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login,logout
 from django.contrib import messages
-
 # Create your views here.
 
 
@@ -16,10 +15,6 @@ from django.contrib import messages
 def Pagina(request):
     producto = Producto.objects.all()
     return render(request,'core/Pagina.html',{'producto':producto})
-def inicio(request):
-    
-    return render(request,'core/inicio.html',)
-
 def Flores(request,id):
     categorias = Categoria.objects.get(idCategoria=id)
     producto=Producto.objects.filter(categoria=categorias)
@@ -129,3 +124,7 @@ class Registro(View):
 def cerrar_sesion(request):
     logout(request)
     return redirect('Pagina')
+    
+def iniciar_sesion(request):
+    form=AuthenticationForm()
+    return render(request,"core/iniciar_sesion.html",{"form":form})

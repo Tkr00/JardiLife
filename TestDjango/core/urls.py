@@ -1,10 +1,10 @@
 from django import views
 from django.urls import path
-from .views  import Pagina, cerrar_sesion,inicio,Flores, Macetero, Arbustos, quienes_somos, Registro, tierra_de_hojas,p, form_produc, form_carrito, form_mod_producto, ListProduc, form_del_producto, agregar_producto, eliminar_producto, restar_producto, limpiar_carro
+from .views  import Pagina, cerrar_sesion, iniciar_sesion,Flores, Macetero, Arbustos, quienes_somos, Registro, tierra_de_hojas,p, form_produc, form_carrito, form_mod_producto, ListProduc, form_del_producto, agregar_producto, eliminar_producto, restar_producto, limpiar_carro
 
 urlpatterns = [
     path('', Pagina, name= "Pagina" ),
-    path('inicio', inicio, name="inicio"),
+    path('iniciar_sesion', iniciar_sesion, name="iniciar_sesion"),
     path('Flores/<id>', Flores, name="Flores"),
     path('Macetero/<id>', Macetero, name="Macetero"),
     path('Arbustos/<id>', Arbustos, name="Arbustos"),
