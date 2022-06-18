@@ -25,6 +25,11 @@
     <form method="post" action="">
         {% csrf_token %}
         {{ form }}
+        {% if messages %}
+        {% for mensaje in messages%}
+        {{mensaje}}
+        {% endfor %}
+        {% endif %}
         <button type="sumbit" class="btn btn-success">iniciar</button>
     </form>
       <footer>
