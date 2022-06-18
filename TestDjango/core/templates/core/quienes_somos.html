@@ -89,9 +89,17 @@
             <li class="nav-item" > 
               <a class="nav-link"  href="{% url 'ListProduc' %}">Listar Productos</a>
             </li>
-          <li class="nav-item" > 
-            <a class="nav-link"  href="{% url 'inicio' %}">Cerrar Sesión</a>
-          </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              {{ user.username }} &nbsp;  <a href="{% url 'cerrar_sesion' %}">Cerrar_sesion</a>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link"  href="{% url 'iniciar_sesion' %}">Iniciar sesion</a>
+            </li> 
+            <li class="nav-item" > 
+              <a class="nav-link"  href="{% url 'registro' %}">Registrarce</a>
+            </li>
+          {% endif %}
           
           </ul>
           <form class="d-flex">
@@ -104,7 +112,8 @@
         </div>
       </div>
     </nav>
-  </header>
+  </header> 
+  
       <h1 id="titulo-quienes">¿Quienes somos?</h1>
           <br>
           <p id="texto-principal">
