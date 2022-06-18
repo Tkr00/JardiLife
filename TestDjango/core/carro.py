@@ -1,13 +1,13 @@
 
 class Carro:
-    def __init__(self, request):
-        '''self.request=request
+    def __init__(self, request):     
+        self.request=request
         self.session=request.session
         carro=self.session.get("carro")
-        if not carro:
-            carro=self.session["carro"]={}
-        #else:'''
         self.carro=carro
+        if not carro:
+            carro=self.session["carro"]={} 
+        self.carro=carro    
     def agregar(self, producto):
         if(producto.nombreP not in self.carro.keys()):
             self.carro[producto.nombreP]={

@@ -29,7 +29,7 @@
                   <img src="static\core/img/logo.png" alt="Jardineria">
               </div>
               <div class="col-md-6" style="text-align: end;">
-
+  
                   <ul class="social-header list-inline text-xs-right">
                       <li class="list-inline-item">
                           <a href="https://www.facebook.com/login.php">
@@ -54,11 +54,11 @@
                           </a>
                       </li>
                   </ul>
-
+  
               </div>
           </div>
       </div>
-
+  
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid" style="background-color: #33d80a;">
           <a class="navbar-brand" href="{% url 'Pagina' %}">Inicio</a>
@@ -87,14 +87,20 @@
                   <li><a class="dropdown-item" href="{% url 'p' %}">Ver todos los productos</a></li>
                 </ul>
               </li>
-              <!--
-                <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
+              <li class="nav-item" > 
+                <a class="nav-link"  href="{% url 'ListProduc' %}">Listar Productos</a>
               </li>
-            -->
-            <li class="nav-item" > 
-              <a class="nav-link"  href="{% url 'inicio' %}">Cerrar Sesión</a>
-            </li>
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                {{ user.username }} &nbsp;  <a href="{% url 'cerrar_sesion' %}">Cerrar_sesion</a>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link"  href="{% url 'iniciar_sesion' %}">Iniciar sesion</a>
+              </li> 
+              <li class="nav-item" > 
+                <a class="nav-link"  href="{% url 'registro' %}">Registrarce</a>
+              </li>
+            {% endif %}
             
             </ul>
             <form class="d-flex">
@@ -102,7 +108,7 @@
               <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
             <div style="margin: 1%;">
-              <i class="fa-solid fa-cart-shopping" data-bs-toggle="modal" data-bs-target="#modalcarrito"></i>
+              <a href="{% url 'form_carrito' %}"><button type="button" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></button></a>
             </div>
           </div>
         </div>

@@ -27,7 +27,7 @@
         {{ form }}
         {% if messages %}
         {% for mensaje in messages%}
-        {{mensaje}}
+        <span class="alert alert-{{mensaje.tags}}">{{mensaje}}</span> 
         {% endfor %}
         {% endif %}
         <button type="sumbit" class="btn btn-success">iniciar</button>
