@@ -114,14 +114,16 @@
         </div>
       </nav>
     </header>
-    <div class="row" style="margin-top: 0%; margin-bottom:2%; ">
+    
+    
+    <div class="row" style="margin-top: 0%; margin-bottom:2%;">
       <h1 class="text-center"></h1>
     </div>
-    <div class="row d-flex justify-content-center">
+    <div class="row g-2 d-flex justify-content-center" style="margin-top: 0%; margin-bottom:4%;">
           {% if request.session.carro.items %}
             {% for key, value in request.session.carro.items %}
-          <div class="col-sm-3" style="margin-top: 5%;">
-            <div class="card" >
+          <div class="col-sm-4" style="margin-top: 5%;">
+            <div class="card"  >
               <img id="img_pt" src="{{ value.imagen }}">
               <div class="card-body">
                 <h5 class="card-title">{{value.nombre}}</h5>
@@ -138,62 +140,73 @@
                   Sin Productos
               </div>
           {% endif %}
-        </div>
-        <div class="container">
-          Total: ${{total_carro}}
-        </div>
-      </div>
-        <div class="container-fluid">
-          <div class="row">
-            <h6>Seleccione la region, provincia y comuna de envio</h6>
-          </div>
-          <div class="row g-2">
-            <div class="col-md-12">
-              <select id="regiones">
-                <option active>Seleccione region</option>
-              </select>
-            </div>
-            <div class="col-md-12">
-              <select id="provincia"></select>
-            </div>
-            <div class="col-md-12">
-              <select id="comunas"></select>
-            </div>
-          </div>
-            <a href="{% url 'Pagina' %}"><button type="button" class="btn btn-primary">Pagar</button></a>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-        <h1></h1>
-    </div>
-    <!-- Api regiones Carro de Compras-->
-    <script>
-      $.get("https://apis.digital.gob.cl/dpa/regiones", function (data) {
-          $.each(data, function (i, data) {
-              $("#regiones").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
-          });
-      });
 
-      $("#regiones").change(function () {
-          $()
-          $("#provincia").empty();
-          $.get("https://apis.digital.gob.cl/dpa/regiones/" + $("#regiones").val() + "/provincias", function (data) {
-              $.each(data, function (i, data) {
-                  $("#provincia").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
-              });
-          });
-      });
+    
 
-      $("#provincia").change(function () {
-          $("#comunas").empty();
-          $.get("https://apis.digital.gob.cl/dpa/provincias/" + $("#provincia").val() + "/comunas", function (data) {
-              $.each(data, function (i, data) {
-                  $("#comunas").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
-              });
+        <!-- Container cosas abajo total -->
+
+        <div class="col-sm-4" style="float: left;">
+          <div class="container">
+            Total: ${{total_carro}}
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <h6>Seleccione la region, provincia y comuna de envio</h6>
+            </div>
+            <div class="row g-2">
+              <div class="col-md-12">
+                <select id="regiones">
+                  <option active>Seleccione region</option>
+                </select>
+              </div>
+              <div class="col-md-12">
+                <select id="provincia"></select>
+              </div>
+              <div class="col-md-12">
+                <select id="comunas"></select>
+              </div>
+            </div>
+              <a href="{% url 'Pagina' %}"><button type="button" class="btn btn-primary">Pagar</button></a>
+          </div>
+        
+
+        <div class="row">
+          <h1></h1>
+        </div>
+        <!-- Api regiones Carro de Compras-->
+        <script>
+          $.get("https://apis.digital.gob.cl/dpa/regiones", function (data) {
+            $.each(data, function (i, data) {
+                $("#regiones").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
+            });
           });
-      });
-    </script>
+  
+          $("#regiones").change(function () {
+            $()
+            $("#provincia").empty();
+            $.get("https://apis.digital.gob.cl/dpa/regiones/" + $("#regiones").val() + "/provincias", function (data) {
+                $.each(data, function (i, data) {
+                    $("#provincia").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
+                });
+            });
+          });
+  
+          $("#provincia").change(function () {
+            $("#comunas").empty();
+            $.get("https://apis.digital.gob.cl/dpa/provincias/" + $("#provincia").val() + "/comunas", function (data) {
+                $.each(data, function (i, data) {
+                    $("#comunas").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
+                });
+            });
+          });
+        </script>
+      </div>  
+    </div>
+        <!-- Termina Container cosas abajo total -->
+
+        
+
+
       <footer>
         <div class="container">
             <div class="row">
