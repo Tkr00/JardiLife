@@ -116,20 +116,47 @@
     </header>
     
     
-    <div class="row" style="margin-top: 0%; margin-bottom:2%;">
+    
+    <div class="row " style="margin-top: 0%; margin-bottom:2%; width: 60%;">
       <h1 class="text-center"></h1>
     </div>
-    <div class="row g-2 d-flex justify-content-center" style="margin-top: 0%; margin-bottom:4%;">
+    <div class="container d-flex justify-content-center" style="margin-top: 0%; margin-bottom:4%; width: 80%; height: 30%;">
           {% if request.session.carro.items %}
             {% for key, value in request.session.carro.items %}
-          <div class="col-sm-4" style="margin-top: 5%;">
+          <div class="col-sm-4 align-items-center" style="margin-top: 5%; margin-left: 5%;">
+            
+            <!--
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Producto(s)</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Agregar o restar</th>
+                  <th scope="col">Precio unitario</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{value.nombre}}</td>
+                  <td>{{value.cantidad}}</td>
+                  <td><a href="{% url 'agregar' value.nombre %}"><button type="button" class="btn btn-success openBtn">+</button></a>
+                    <a href="{% url 'restar' value.nombre %}"><button type="button" class="btn btn-success openBtn">-</button></a></td>
+                  <td>${{value.precio}}</td>
+                  <td>${{total_carro}}</td>
+                </tr>
+              </tbody>
+            </table>
+            -->
+            
+            
             <div class="card"  >
               <img id="img_pt" src="{{ value.imagen }}">
-              <div class="card-body">
+              <div class="card-body ">
                 <h5 class="card-title">{{value.nombre}}</h5>
                     <a href="{% url 'agregar' value.nombre %}"><button type="button" class="btn btn-success openBtn">+</button></a>
                     <a href="{% url 'restar' value.nombre %}"><button type="button" class="btn btn-success openBtn">-</button></a>
-                    <p class="card-text">Precio: ${{value.precio}}</p> 
+                    <p class="card-text" style="margin-top: 3%;">Precio: ${{value.precio}}</p> 
                     <p class="card-text">Cantidad: {{value.cantidad}}</p>
               </div>
             </div>
@@ -144,14 +171,15 @@
     
 
         <!-- Container cosas abajo total -->
-
-        <div class="col-sm-4" style="float: left;">
-          <div class="container">
+      
+        <div class="col-sm-4" style="float: left; margin-left: 10%; margin-top: 25%;">
+          <div class="container" style="margin-bottom: 5%;">
             Total: ${{total_carro}}
           </div>
+          <hr>
           <div class="container-fluid">
             <div class="row">
-              <h6>Seleccione la region, provincia y comuna de envio</h6>
+              <h6>Seleccione la region, provincia y comuna de envío</h6>
             </div>
             <div class="row g-2">
               <div class="col-md-12">
@@ -165,9 +193,11 @@
               <div class="col-md-12">
                 <select id="comunas"></select>
               </div>
+            <hr>
             </div>
               <a href="{% url 'Pagina' %}"><button type="button" class="btn btn-primary">Pagar</button></a>
-          </div>
+              <a href="{% url 'p' %}"><button type="button" class="btn btn-primary">Seguir comprando</button></a>
+            </div>
         
 
         <div class="row">
