@@ -120,23 +120,25 @@
           <div class="lista col-12"> 
             <h4 id="productos">Arbustos</h4>
           </div>
-          <!--Arbustos card y modal-->
-          {% for pr in producto %}
-          <div class="container col-sm-3" style="margin-top: 5%;">
-            <div class="card" >
-              {% if pr.imagen %}
-              <img id="img_pt" src="{{ pr.imagen.url }}">
-              {% endif %}
-              <div class="card-body">
-                <h5 class="card-title">{{pr.nombreP}}</h5>
-                    <p class="card-text">Precio: ${{pr.precio}}</p> 
-                    <a href="{% url 'form_produc' pr.nombreP %}"><button type="button" class="btn btn-success openBtn">Comprar</button></a>
-              </div>
-            </div>
+          <!--card -->
+    <div class="row row-cols-2 row-cols-md-3 g-4 ">
+      {% for pr in producto %}
+      <div class="col">
+        <div class="card">
+          {% if pr.imagen %}
+          <img id="img_pt" src="{{ pr.imagen.url }}" style="width: 14rem;height: 14rem; padding: 5%;">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{pr.nombreP}}</h5>
+            <p class="card-text">Precio: ${{pr.precio}}</p>
+            <a href="{% url 'form_produc' pr.nombreP %}"><button type="button"
+                class="btn btn-success openBtn">Comprar</button></a>
           </div>
-          {% endfor %}
         </div>
       </div>
+      {% endfor %}
+    </div>
+  </div>
       <!--acá termina los productos-->
 
      
