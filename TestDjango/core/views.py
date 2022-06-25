@@ -16,6 +16,9 @@ def Pagina(request):
     producto = Producto.objects.all()
     carro=Carro(request)
     return render(request,'core/Pagina.html',{'producto':producto})
+
+def base(request):  
+    return render(request,'core/base.html',)      
 def Flores(request,id):
     categorias = Categoria.objects.get(idCategoria=id)
     producto=Producto.objects.filter(categoria=categorias)

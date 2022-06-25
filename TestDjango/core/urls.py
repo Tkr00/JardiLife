@@ -1,6 +1,9 @@
+from cgitb import html
+from tokenize import Name
+from unicodedata import name
 from django import views
 from django.urls import path
-from .views  import Pagina, cerrar_sesion, iniciar_sesion,Flores, Macetero, Arbustos, quienes_somos, Registro, tierra_de_hojas,p, form_produc, form_carrito, form_mod_producto, ListProduc, form_del_producto, agregar_producto, eliminar_producto, restar_producto, limpiar_carro
+from .views  import Pagina, cerrar_sesion, iniciar_sesion,Flores, Macetero, Arbustos, quienes_somos, Registro, tierra_de_hojas,p, form_produc, form_carrito, form_mod_producto, ListProduc, form_del_producto, agregar_producto, eliminar_producto, restar_producto, limpiar_carro, base
 
 urlpatterns = [
     path('', Pagina, name= "Pagina" ),
@@ -21,5 +24,6 @@ urlpatterns = [
     path('restar/<nombre>',restar_producto , name="restar"),
     path('limpiar',limpiar_carro, name="limpiar"),
     path('registro',Registro.as_view(),name='registro'),
-    path('cerrar_sesion',cerrar_sesion,name="cerrar_sesion")
+    path('cerrar_sesion',cerrar_sesion,name="cerrar_sesion"),
+    path('base', base, name="base")
 ]
