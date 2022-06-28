@@ -1,186 +1,33 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome CDN -->
-    <script src="https://kit.fontawesome.com/5139f7b44b.js" crossorigin="anonymous"></script>
-
-    <!-- Main Css -->
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'core/css/style.css'%}">
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-</head>
-</head>
-<body>
-  <header>
-    <div class="container" style="margin-bottom: 1%;">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="static\core/img/logo.png" alt="Jardineria">
-            </div>
-            <div class="col-md-6" style="text-align: end;">
-
-                <ul class="social-header list-inline text-xs-right">
-                    <li class="list-inline-item">
-                        <a href="https://www.facebook.com/login.php">
-                            <span class="fa-stack fa.lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                        </a>
-                        <a href="https://twitter.com/i/flow/login">
-                            <span class="fa-stack fa.lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                        </a>
-                        <a href="https://www.youtube.com/">
-                            <span class="fa-stack fa.lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
-                        </a>
-                        <a href="https://www.instagram.com/accounts/login/">
-                            <span class="fa-stack fa.lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-                        </a>
-                    </li>
-                </ul>
-
-            </div>
-        </div>
-    </div>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid" style="background-color: #33d80a;">
-        <a class="navbar-brand" href="{% url 'Pagina' %}">Inicio</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'quienes_somos' %}">Quienes somos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'p' %}">Productos</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Categorias
-              </a>
-            
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{% url 'Macetero' 4 %}">Maceteros</a></li>
-                <li><a class="dropdown-item" href="{% url 'Flores' 3 %}">Flores</a></li>
-                <li><a class="dropdown-item" href="{% url 'tierra_de_hojas' 2 %}">Tierra de hojas</a></li>
-                <li><a class="dropdown-item" href="{% url 'Arbustos' 1 %}">Arbustos</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{% url 'p' %}">Ver todos los productos</a></li>
-              </ul>
-            </li>
-            <li class="nav-item" > 
-              <a class="nav-link"  href="{% url 'ListProduc' %}">Listar Productos</a>
-            </li>
-          {% if user.is_authenticated %}
-            <li class="nav-item">
-              {{ user.username }} &nbsp;  <a href="{% url 'cerrar_sesion' %}">Cerrar_sesion</a>
-          {% else %}
-            <li class="nav-item">
-              <a class="nav-link"  href="{% url 'iniciar_sesion' %}">Iniciar sesion</a>
-            </li> 
-            <li class="nav-item" > 
-              <a class="nav-link"  href="{% url 'registro' %}">Registrarce</a>
-            </li>
-          {% endif %}
-          
-          </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Buscar en JardiLife.cl" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>
-          </form>
-          <div style="margin: 1%;">
-            <a href="{% url 'form_carrito' %}"><button type="button" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></button></a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header> 
+{% extends "core/baseT.html" %}
+{% block title %} TIERRA DE HOJAS {% endblock %}
+{% block content %}
       <!---productos-->
-      <div class="container col-md-8" style="margin-left: 15%; margin-right: 15%; margin-bottom: 5%;">
-        <div class="row">
-          <div class="lista col-12"> 
-            <h4 id="productos">Tierra De Hojas</h4>
+      <div class="container col-md-8" style="margin-left: 15%; margin-right: 15%; margin-bottom: 8%;">
+
+        <div class="lista col-12">
+          <h4 id="productos">Tierra de hojas</h4>
+        </div>
+        <!--card -->
+        <div class="row row-cols-2 row-cols-md-3 g-4 ">
+          {% for pr in producto %}
+          <div class="col">
+            <div class="card">
+              {% if pr.imagen %}
+              <img id="img_pt" src="{{ pr.imagen.url }}" style="width: 14rem;height: 14rem; padding: 5%;">
+              {% endif %}
+              <div class="card-body">
+                <h5 class="card-title">{{pr.nombreP}}</h5>
+                <p class="card-text">Precio: ${{pr.precio}}</p>
+                <a href="{% url 'form_produc' pr.nombreP %}"><button type="button"
+                    class="btn btn-success openBtn">Comprar</button></a>
+              </div>
+            </div>
           </div>
-          <!--card -->
-    <div class="row row-cols-2 row-cols-md-3 g-4 ">
-      {% for pr in producto %}
-      <div class="col">
-        <div class="card">
-          {% if pr.imagen %}
-          <img id="img_pt" src="{{ pr.imagen.url }}" style="width: 14rem;height: 14rem; padding: 5%;">
-          {% endif %}
-          <div class="card-body">
-            <h5 class="card-title">{{pr.nombreP}}</h5>
-            <p class="card-text">Precio: ${{pr.precio}}</p>
-            <a href="{% url 'form_produc' pr.nombreP %}"><button type="button"
-                class="btn btn-success openBtn">Comprar</button></a>
-          </div>
+          {% endfor %}
         </div>
       </div>
-      {% endfor %}
-    </div>
-  </div>
       <!--acá termina los productos-->
-        
-
-      <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-
-                    <strong>JardiLife</strong> &copy;2022- Todos los derechos reservados. Sitio diseñado por <a href="#">Alvaro Farias, Byron Román y Felipe Prieto</a>
-
-
-                </div>
-                <div class="col-sm-6 text-xs-right">
-
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                        <a href="#">Inicio</a>
-                        </li>
-                        <li class="list-inline-item">
-                        <a href="#">Aviso Legal</a>
-                        </li>
-                        <li class="list-inline-item">
-                        <a href="#">Cookies</a>
-                        </li>
-                        <li class="list-inline-item">
-                        <a href="#">Contacto</a>
-                        </li>
-                        
-                        
-                    </ul>
-
-
-                </div>
-            </div>
-        </div>
-
-      </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-  </body>
-</html>
+{% endblock%}
 
 
 
