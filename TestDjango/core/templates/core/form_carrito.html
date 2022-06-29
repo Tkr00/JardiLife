@@ -157,6 +157,8 @@
                     <a href="{% url 'agregar' value.nombre %}"><button type="button" class="btn btn-success openBtn">+</button></a>
                     <a href="{% url 'restar' value.nombre %}"><button type="button" class="btn btn-success openBtn">-</button></a>
                     <p class="card-text" style="margin-top: 3%;">Precio: ${{value.precio}}</p> 
+                    <p class="card-text" style="margin-top: 3%;">Stock: {{value.stock}}</p> 
+
                     <p class="card-text">Cantidad: {{value.cantidad}}</p>
               </div>
             </div>

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'core',
     'rest_jardi',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -142,4 +143,11 @@ MESSAGE_TAGS={
     mensaje_de_error.SUCCESS: 'success',
     mensaje_de_error.WARNING: 'warning',
     mensaje_de_error.ERROR: 'danger',
+}
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+    ],
 }

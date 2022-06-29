@@ -14,6 +14,7 @@ class Carro:
                 "nombre":producto.nombreP,
                 "precio":str(producto.precio),
                 "imagen":producto.imagen.url,
+                "stock":producto.stock,
                 "cantidad":1
             }
         else:
