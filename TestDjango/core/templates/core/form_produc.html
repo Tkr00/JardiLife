@@ -26,7 +26,7 @@
       <div class="container" style="margin-bottom: 1%;">
           <div class="row">
               <div class="col-md-6">
-                  <img src="static\core/img/logo.png" alt="Jardineria">
+                  <img src="/static\core/img/logo.png" alt="Jardineria">
               </div>
               <div class="col-md-6" style="text-align: end;">
   
@@ -125,6 +125,7 @@
         <img id="img_pt" src="{{ pr.imagen.url }}" style="width: 40%; height: 70%; float: left;  ">
         {% endif %}
         <div class="col-sm-6" style="text-align: center; border-style: solid; float: right; margin-top: 5%; margin-bottom:5%" >
+        <p>Stock: {{pr.stock}}</p>
         <p>Precio: ${{pr.precio}}</p>
         <p>Categoria: {{pr.categoria}}</p>
         <hr>
