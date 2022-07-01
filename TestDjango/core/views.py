@@ -56,13 +56,40 @@ def form_carrito(request):
 
     return render(request,'core/form_carrito.html')
 
-def ListProduc(request):
-    producto = Producto.objects.all()
+def ListArbusto(request,id):
+    categorias = Categoria.objects.get(idCategoria=id)
+    producto=Producto.objects.filter(categoria=categorias)
 
     datos = {
         'producto': producto
     }
-    return render(request,'core/ListProduc.html',datos)
+    return render(request,'core/ListArbusto.html',datos)
+def ListMacetero(request,id):
+    categorias = Categoria.objects.get(idCategoria=id)
+    producto=Producto.objects.filter(categoria=categorias)
+
+    datos = {
+        'producto': producto
+    }
+    return render(request,'core/ListMacetero.html',datos)
+
+def ListFlores(request,id):
+    categorias = Categoria.objects.get(idCategoria=id)
+    producto=Producto.objects.filter(categoria=categorias)
+
+    datos = {
+        'producto': producto
+    }
+    return render(request,'core/ListFlores.html',datos)
+
+def ListTierra_de_hojas(request,id):
+    categorias = Categoria.objects.get(idCategoria=id)
+    producto=Producto.objects.filter(categoria=categorias)
+
+    datos = {
+        'producto': producto
+    }
+    return render(request,'core/ListTierra_de_hojas.html',datos)
 
 def form_mod_producto(request,id):
 
@@ -80,13 +107,35 @@ def form_mod_producto(request,id):
 
     return render(request, 'core/form_mod_producto.html',datos)
 
-def form_del_producto(request,id):
+def form_del_Arbusto(request,id):
 
     producto = Producto.objects.get(nombreP=id)
 
     producto.delete()
 
-    return redirect(to='ListProduc')
+    return redirect(to='Pagina')
+
+def form_del_Macetero(request,id):
+
+    producto = Producto.objects.get(nombreP=id)
+
+    producto.delete()
+
+    return redirect(to='Pagina')
+def form_del_Flores(request,id):
+
+    producto = Producto.objects.get(nombreP=id)
+
+    producto.delete()
+
+    return redirect(to='Pagina')
+def form_del_Tierra_de_hojas(request,id):
+
+    producto = Producto.objects.get(nombreP=id)
+
+    producto.delete()
+
+    return redirect(to='Pagina')
 
 def agregar_producto(request, nombre):
     carro = Carro(request)
