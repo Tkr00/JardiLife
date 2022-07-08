@@ -74,4 +74,9 @@ footer a:hover {
     margin-bottom: 3%;
 }
 
+#img_carrito {
+    height: 1rem;
+    width: 30%;
+    object-fit: contain;
+}
 
