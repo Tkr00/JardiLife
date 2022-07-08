@@ -97,11 +97,11 @@ def form_agregar(request):
     }
 
     if request.method=='POST':
-        formulario =  Producform(request.POST)
+        form=  Producform(request.POST)
 
-        if formulario.is_valid:
-            formulario.save()
-            datos['mensaje'] = "Guardado Correctamente"
+        if form.is_valid:
+            form.save()
+            datos['mensaje'] = "Guardado Correctamente";
 
     return render(request,'core/form_agregar.html',datos)
 def form_mod_producto(request,id):
