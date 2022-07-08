@@ -3,7 +3,7 @@ from tokenize import Name
 from unicodedata import name
 from django import views
 from django.urls import path
-from .views  import ListTierra_de_hojas,ListFlores, Pagina, cerrar_sesion, form_del_Arbusto, form_del_Flores, form_del_Macetero, form_del_Tierra_de_hojas, iniciar_sesion,Flores, Macetero, Arbustos, quienes_somos, Registro, tierra_de_hojas,p, form_produc, form_carrito, form_mod_producto, ListArbusto, agregar_producto, eliminar_producto, restar_producto, limpiar_carro, base, ListMacetero
+from .views  import ListTierra_de_hojas, ListFlores, Pagina, cerrar_sesion, form_agregar, form_del_Arbusto, form_del_Flores, form_del_Macetero, form_del_Tierra_de_hojas, iniciar_sesion,Flores, Macetero, Arbustos, quienes_somos, Registro, tierra_de_hojas,p, form_produc, form_carrito, form_mod_producto, ListArbusto, agregar_producto, eliminar_producto, restar_producto, limpiar_carro, base, ListMacetero
 
 urlpatterns = [
     path('', Pagina, name= "Pagina" ),
@@ -31,5 +31,6 @@ urlpatterns = [
     path('limpiar',limpiar_carro, name="limpiar"),
     path('registro',Registro.as_view(),name='registro'),
     path('cerrar_sesion',cerrar_sesion,name="cerrar_sesion"),
-    path('base', base, name="base")
+    path('base', base, name="base"),
+    path('form_agregar',form_agregar,name="form_agregar")
 ]

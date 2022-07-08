@@ -90,7 +90,20 @@ def ListTierra_de_hojas(request,id):
         'producto': producto
     }
     return render(request,'core/ListTierra_de_hojas.html',datos)
+def form_agregar(request):
+    
+    datos = {
+        'form':Producform()
+    }
 
+    if request.method=='POST':
+        formulario =  Producform(request.POST)
+
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje'] = "Guardado Correctamente"
+
+    return render(request,'core/form_agregar.html',datos)
 def form_mod_producto(request,id):
 
     producto = Producto.objects.get(nombreP=id)
