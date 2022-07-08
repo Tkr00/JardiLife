@@ -133,32 +133,6 @@
           {% if request.session.carro.items %}
             {% for key, value in request.session.carro.items %}
           <div class="col-sm-4 align-items-center" style="margin-top: 5%; margin-left: 5%;">
-            
-            <!--
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Producto(s)</th>
-                  <th scope="col">Cantidad</th>
-                  <th scope="col">Agregar o restar</th>
-                  <th scope="col">Precio unitario</th>
-                  <th scope="col">Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{{value.nombre}}</td>
-                  <td>{{value.cantidad}}</td>
-                  <td><a href="{% url 'agregar' value.nombre %}"><button type="button" class="btn btn-success openBtn">+</button></a>
-                    <a href="{% url 'restar' value.nombre %}"><button type="button" class="btn btn-success openBtn">-</button></a></td>
-                  <td>${{value.precio}}</td>
-                  <td>${{total_carro}}</td>
-                </tr>
-              </tbody>
-            </table>
-            -->
-            
-            
             <div class="card"  >
               <img id="img_pt" src="{{ value.imagen }}">
               <div class="card-body ">
