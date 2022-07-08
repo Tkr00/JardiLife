@@ -86,6 +86,7 @@
                   <li><a class="dropdown-item" href="{% url 'p' %}">Ver todos los productos</a></li>
                 </ul>
               </li>
+              {% if user.is_superuser %}
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Listar productos 
@@ -98,6 +99,7 @@
                   <li><a class="dropdown-item" href="{% url 'ListArbusto' 1 %}">Arbustos</a></li>
                 </ul>
               </li>
+            {% endif %}
             {% if user.is_authenticated %}
               <li class="nav-item">
                 {{ user.username }} &nbsp;  <a href="{% url 'cerrar_sesion' %}">Cerrar_sesion</a>
